@@ -205,11 +205,10 @@ main{
 
 /* ✅ MOBILE: show photo FIRST, then text */
 @media (max-width: 700px){
-  .hero{
-    flex-direction: column;
-    gap: 1.2rem;
-    align-items: center;
-  }
+  .hero-content{ width: 100%; text-align: left; }
+  .hero-content h1, .hero-content .sub{ text-align: center; }
+  .links-row{ justify-content: center; }
+}
 
   /* photo appears first */
   .hero-photo{
