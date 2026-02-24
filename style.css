@@ -1,9 +1,6 @@
 /* =========================================================
-   Sven Heim – stable clean layout (NO duplicate rules)
-   - no Interests block styles needed on home
-   - sharper separators for News
-   - stable hero photo position
-   - no "double line" under headings
+   Sven Heim – clean stable layout
+   KEY: hero photo vertically centered with text block
    ========================================================= */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -12,9 +9,8 @@
   --text: #2c2c2c;
   --text2: #4a4a4a;
   --text3: #777;
-  --line: #e2e2e2;
 
-  /* sharper separators between news items */
+  --line: #e2e2e2;
   --line-strong: rgba(0,0,0,.14);
 
   --bg: #fafafa;
@@ -123,20 +119,19 @@ main{
 }
 
 /* ---------------- Hero ---------------- */
+/* THIS is the only change you asked for: centered photo */
 .hero{
   display: flex;
   gap: 2.8rem;
-  align-items: flex-start;          /* stable: photo never "floats" */
+  align-items: center;          /* <-- photo centered to the text block */
   margin-bottom: 1.8rem;
 }
 
-/* content on the left */
 .hero-content{
   flex: 1;
   min-width: 0;
 }
 
-/* photo on the right */
 .hero-photo{
   width: 250px;
   min-width: 250px;
@@ -145,12 +140,9 @@ main{
   object-fit: cover;
   object-position: center 20%;
   order: 2;
-
-  /* lock position: choose ONE value and keep it */
-  margin-top: 2.05rem;              /* aligns with start of paragraph block (not the subline) */
+  margin-top: 0;               /* <-- no vertical offset, stays centered */
 }
 
-/* headline + subtitle */
 .hero-content h1{
   font-size: 1.75rem;
   font-weight: 600;
@@ -164,7 +156,6 @@ main{
   margin-bottom: 1rem;
 }
 
-/* bio */
 .bio{
   font-size: .9rem;
   color: var(--text2);
@@ -178,7 +169,6 @@ main{
   font-size: 1.06em;
 }
 
-/* link buttons row (clean, academic) */
 .links-row{
   display: flex;
   flex-wrap: wrap;
@@ -216,14 +206,12 @@ main{
 }
 
 @media (max-width: 700px){
-  .hero{ flex-direction: column; gap: 1.5rem; }
+  .hero{ flex-direction: column; gap: 1.5rem; align-items: center; }
   .hero-photo{
     width: 180px;
     min-width: 180px;
     height: 180px;
     order: 0;
-    align-self: center;
-    margin-top: 0;                  /* reset on mobile */
   }
 }
 
@@ -237,7 +225,7 @@ main{
   border-bottom: 1px solid var(--line);
 }
 
-/* IMPORTANT FIX: avoids "double line" effect under a title */
+/* prevents "double line" effect under a title */
 .section-title + .pub-item{ border-top: none; }
 
 /* ---------------- News meta line ---------------- */
@@ -262,9 +250,7 @@ main{
   border-bottom: 1px solid var(--line-strong);
 }
 
-.pub-item:last-child{
-  border-bottom: none;
-}
+.pub-item:last-child{ border-bottom: none; }
 
 .pub-item p{
   font-size: .84rem;
@@ -273,18 +259,14 @@ main{
   line-height: 1.55;
 }
 
-.pub-item p + p{
-  margin-top: .45rem;
-}
+.pub-item p + p{ margin-top: .45rem; }
 
 .pub-item .press-links{
   font-size: .75rem;
   margin-top: .2rem;
 }
 
-.pub-item .press-links a{
-  margin-right: .35rem;
-}
+.pub-item .press-links a{ margin-right: .35rem; }
 
 /* ---------------- Footer ---------------- */
 footer{
