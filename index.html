@@ -21,7 +21,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css">
+  <!-- cache-bust to avoid “half-updated” look -->
+  <link rel="stylesheet" href="style.css?v=20260224-1">
 
   <!-- Schema.org -->
   <script type="application/ld+json">
@@ -88,7 +89,6 @@
 <main class="wrap">
 
   <section class="hero">
-    <img class="hero-photo" src="photo.jpg" alt="Sven Heim">
     <div class="hero-content">
       <h1>Sven Heim</h1>
       <p class="sub">
@@ -97,17 +97,34 @@
         <a href="https://www.minesparis.psl.eu/" target="_blank" rel="noopener noreferrer">Mines Paris – PSL</a>
       </p>
 
-<div class="bio">
-        <p>I am an associate professor of economics at the Center for Industrial Economics (CERNA) at <a href="https://www.minesparis.psl.eu/" target="_blank" rel="noopener noreferrer">Mines Paris – PSL</a>. I am also a Research Associate at <a href="https://www.zew.de/en/team/she" target="_blank" rel="noopener noreferrer">ZEW Mannheim</a>, a Research Member at the <a href="http://cred.u-paris2.fr/" target="_blank" rel="noopener noreferrer">Paris Center for Law and Economics (CRED)</a> at the University of Paris II Panthéon-Assas, Affiliate Researcher at <a href="https://www.wu.ac.at/regulation/members/affiliate-research-staff/sven-heim" target="_blank" rel="noopener noreferrer">WU Vienna</a>, and a Research Affiliate at the <a href="https://cepr.org/about/people/sven-heim" target="_blank" rel="noopener noreferrer">Centre for Economic Policy Research (CEPR)</a>.</p>
+      <div class="bio">
+        <p>
+          I am an associate professor of economics at the Center for Industrial Economics (CERNA) at
+          <a href="https://www.minesparis.psl.eu/" target="_blank" rel="noopener noreferrer">Mines Paris – PSL</a>.
+          I am also a Research Associate at <a href="https://www.zew.de/en/team/she" target="_blank" rel="noopener noreferrer">ZEW Mannheim</a>,
+          a Research Member at the <a href="http://cred.u-paris2.fr/" target="_blank" rel="noopener noreferrer">Paris Center for Law and Economics (CRED)</a>
+          at the University of Paris II Panthéon-Assas, Affiliate Researcher at
+          <a href="https://www.wu.ac.at/regulation/members/affiliate-research-staff/sven-heim" target="_blank" rel="noopener noreferrer">WU Vienna</a>,
+          and a Research Affiliate at the <a href="https://cepr.org/about/people/sven-heim" target="_blank" rel="noopener noreferrer">Centre for Economic Policy Research (CEPR)</a>.
+        </p>
 
-        <p>My research sits at the intersection of industrial organization, competition policy, and energy economics. A central strand of my work examines how minority ownership links between competing firms shape their incentives to compete, innovate, and collude. I also study how information frictions and consumer search shape pricing strategies and consumer behavior, and the effectiveness of state aid and EU competition policy. My papers on these topics have been published in the <em>American Economic Journal: Microeconomics</em>, <em>Journal of Public Economics</em>, <em>Journal of Political Economy Microeconomics</em>, and the <em>European Economic Review</em>.</p>
+        <p>
+          My research sits at the intersection of industrial organization, competition policy, and energy economics. A central strand of
+          my work examines how minority ownership links between competing firms shape their incentives to compete, innovate, and collude.
+          I also study how information frictions and consumer search shape pricing strategies and consumer behavior, and the effectiveness
+          of state aid and EU competition policy. My papers on these topics have been published in the <em>American Economic Journal: Microeconomics</em>,
+          <em>Journal of Public Economics</em>, <em>Journal of Political Economy Microeconomics</em>, and the <em>European Economic Review</em>.
+        </p>
 
-        <p>In addition, I work on energy and environmental economics, where I study the economics of the energy transition and the design of electricity markets.</p>
+        <p>
+          In addition, I work on energy and environmental economics, where I study the economics of the energy transition and the design of electricity markets.
+        </p>
 
-        <p>I advise institutions such as the European Commission and the German Federal Ministry of Economic Affairs and Energy, and serve as a court expert in cartel cases.</p>
+        <p>
+          I advise institutions such as the European Commission and the German Federal Ministry of Economic Affairs and Energy, and serve as a court expert in cartel cases.
+        </p>
       </div>
 
-      <!-- All links same style -->
       <div class="links-row">
         <a href="mailto:sven.heim@minesparis.psl.eu">E-mail</a>
         <a href="https://www.cerna.minesparis.psl.eu/Members/Faculty/Sven-Heim/" target="_blank" rel="noopener noreferrer">Faculty website</a>
@@ -115,9 +132,13 @@
         <a href="https://orcid.org/0000-0001-9705-4600" target="_blank" rel="noopener noreferrer">ORCID</a>
         <a href="https://ideas.repec.org/f/phe766.html" target="_blank" rel="noopener noreferrer">IDEAS/RePEc</a>
         <a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=1784867" target="_blank" rel="noopener noreferrer">SSRN</a>
-        <a href="https://www.dropbox.com/scl/fi/ykgxmuvk9oskc0qu7upg4/cv_sh_20251010.pdf?rlkey=qvfu8qjtoxxg0te70fbv1rabx&st=mfirjs3y&dl=0" target="_blank" rel="noopener noreferrer" class="cv-link">Download CV</a>
+        <a href="https://www.dropbox.com/scl/fi/ykgxmuvk9oskc0qu7upg4/cv_sh_20251010.pdf?rlkey=qv2fu8qjtoxxg0te70fbv1rabx&st=mfirjs3y&dl=0" target="_blank" rel="noopener noreferrer" class="cv-link">Download CV</a>
       </div>
     </div>
+
+    <aside class="hero-aside" aria-label="Portrait">
+      <img class="hero-photo" src="photo.jpg" alt="Sven Heim">
+    </aside>
   </section>
 
   <h2 class="section-title">News</h2>
