@@ -1,6 +1,6 @@
 /* =========================================================
    Sven Heim – clean stable layout
-   KEY: hero photo vertically centered with text block
+   + Teaching page cards & rows
    ========================================================= */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -118,19 +118,15 @@ main{
   padding: 2.5rem var(--pad) 4rem;
 }
 
-/* ---------------- Hero ---------------- */
-/* THIS is the only change you asked for: centered photo */
+/* ---------------- Hero (Home) ---------------- */
 .hero{
   display: flex;
   gap: 2.8rem;
-  align-items: center;          /* <-- photo centered to the text block */
+  align-items: center;
   margin-bottom: 1.8rem;
 }
 
-.hero-content{
-  flex: 1;
-  min-width: 0;
-}
+.hero-content{ flex: 1; min-width: 0; }
 
 .hero-photo{
   width: 250px;
@@ -140,7 +136,7 @@ main{
   object-fit: cover;
   object-position: center 20%;
   order: 2;
-  margin-top: 0;               /* <-- no vertical offset, stays centered */
+  margin-top: 0;
 }
 
 .hero-content h1{
@@ -187,10 +183,7 @@ main{
   text-decoration: none;
 }
 
-.links-row a:hover{
-  border-color: var(--link);
-  text-decoration: none;
-}
+.links-row a:hover{ border-color: var(--link); text-decoration: none; }
 
 .links-row .cv-link{
   background: var(--link);
@@ -198,7 +191,6 @@ main{
   border-color: var(--link);
   font-weight: 600;
 }
-
 .links-row .cv-link:hover{
   background: var(--link-h);
   border-color: var(--link-h);
@@ -220,7 +212,7 @@ main{
   font-size: 1rem;
   font-weight: 600;
   color: var(--text);
-  margin: 2.8rem 0 .7rem;
+  margin: 2.2rem 0 .8rem;
   padding-bottom: .35rem;
   border-bottom: 1px solid var(--line);
 }
@@ -228,7 +220,7 @@ main{
 /* prevents "double line" effect under a title */
 .section-title + .pub-item{ border-top: none; }
 
-/* ---------------- News meta line ---------------- */
+/* ---------------- News items (Home) ---------------- */
 .news-meta{
   display: flex;
   align-items: baseline;
@@ -239,34 +231,121 @@ main{
   letter-spacing: .06em;
   text-transform: uppercase;
 }
-
 .news-year{ font-weight: 500; }
 .news-type{ font-weight: 600; }
 .news-sep{ opacity: .75; }
 
-/* ---------------- News items ---------------- */
 .pub-item{
   padding: 1.05rem 0;
   border-bottom: 1px solid var(--line-strong);
 }
-
 .pub-item:last-child{ border-bottom: none; }
-
 .pub-item p{
   font-size: .84rem;
   color: var(--text2);
   margin-top: .25rem;
   line-height: 1.55;
 }
-
 .pub-item p + p{ margin-top: .45rem; }
-
 .pub-item .press-links{
   font-size: .75rem;
   margin-top: .2rem;
 }
-
 .pub-item .press-links a{ margin-right: .35rem; }
+
+/* =========================================================
+   Teaching page
+   ========================================================= */
+
+.page-intro{
+  color: var(--text2);
+  font-size: .9rem;
+  margin: .8rem 0 1.4rem;
+  max-width: 85ch;
+}
+
+/* Institution card */
+.inst-card{
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1.1rem 1.1rem .2rem;
+  margin: 1rem 0 1.1rem;
+}
+
+.inst-head{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: .6rem;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: .6rem;
+}
+
+.inst-card h3{
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* Course list = rows, not bullets */
+.course-list{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.course-row{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  padding: .7rem 0;
+  border-bottom: 1px solid rgba(0,0,0,.07);
+}
+
+.course-row:last-child{
+  border-bottom: none;
+}
+
+.course-main{
+  min-width: 0;
+}
+
+.course-title{
+  display: block;
+  font-size: .86rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.35;
+}
+
+.course-desc{
+  display: block;
+  margin-top: .18rem;
+  font-size: .83rem;
+  color: var(--text2);
+  line-height: 1.45;
+}
+
+.course-years{
+  font-size: .82rem;
+  color: var(--text3);
+  white-space: nowrap;
+  padding-top: .06rem;
+}
+
+/* Mobile: keep years under title */
+@media (max-width: 700px){
+  .inst-card{ padding: 1rem 1rem .2rem; }
+  .course-row{
+    grid-template-columns: 1fr;
+    gap: .35rem;
+  }
+  .course-years{
+    padding-top: 0;
+  }
+}
 
 /* ---------------- Footer ---------------- */
 footer{
