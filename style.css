@@ -1,6 +1,5 @@
 /* =========================================================
-   Sven Heim – clean stable layout
-   + Teaching page cards & rows
+   Sven Heim – clean stable layout (NO cards/boxes on Teaching)
    ========================================================= */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -122,7 +121,7 @@ main{
 .hero{
   display: flex;
   gap: 2.8rem;
-  align-items: center;
+  align-items: center; /* keep photo centered */
   margin-bottom: 1.8rem;
 }
 
@@ -217,9 +216,6 @@ main{
   border-bottom: 1px solid var(--line);
 }
 
-/* prevents "double line" effect under a title */
-.section-title + .pub-item{ border-top: none; }
-
 /* ---------------- News items (Home) ---------------- */
 .news-meta{
   display: flex;
@@ -247,104 +243,42 @@ main{
   line-height: 1.55;
 }
 .pub-item p + p{ margin-top: .45rem; }
-.pub-item .press-links{
-  font-size: .75rem;
-  margin-top: .2rem;
-}
-.pub-item .press-links a{ margin-right: .35rem; }
 
 /* =========================================================
-   Teaching page
+   Teaching – NO boxes, just clean separators & spacing
    ========================================================= */
 
-.page-intro{
-  color: var(--text2);
-  font-size: .9rem;
-  margin: .8rem 0 1.4rem;
-  max-width: 85ch;
+.teaching-section{
+  margin: 1.1rem 0 1.4rem;
 }
 
-/* Institution card */
-.inst-card{
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 1.1rem 1.1rem .2rem;
-  margin: 1rem 0 1.1rem;
-}
-
-.inst-head{
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-  padding-bottom: .6rem;
-  border-bottom: 1px solid var(--line);
-  margin-bottom: .6rem;
-}
-
-.inst-card h3{
+.teaching-h3{
   font-size: .95rem;
   font-weight: 600;
   color: var(--text);
+  margin: 1.1rem 0 .55rem;
 }
 
-/* Course list = rows, not bullets */
-.course-list{
+.teaching-list{
   list-style: none;
-  margin: 0;
-  padding: 0;
+  padding-left: 0;
+  border-top: 1px solid rgba(0,0,0,.08);
 }
 
-.course-row{
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 1rem;
+.teaching-list li{
   padding: .7rem 0;
-  border-bottom: 1px solid rgba(0,0,0,.07);
-}
-
-.course-row:last-child{
-  border-bottom: none;
-}
-
-.course-main{
-  min-width: 0;
-}
-
-.course-title{
-  display: block;
-  font-size: .86rem;
-  font-weight: 600;
-  color: var(--text);
-  line-height: 1.35;
-}
-
-.course-desc{
-  display: block;
-  margin-top: .18rem;
-  font-size: .83rem;
+  border-bottom: 1px solid rgba(0,0,0,.08);
+  font-size: .88rem;
   color: var(--text2);
-  line-height: 1.45;
+  line-height: 1.55;
 }
 
-.course-years{
-  font-size: .82rem;
-  color: var(--text3);
-  white-space: nowrap;
-  padding-top: .06rem;
-}
-
-/* Mobile: keep years under title */
-@media (max-width: 700px){
-  .inst-card{ padding: 1rem 1rem .2rem; }
-  .course-row{
-    grid-template-columns: 1fr;
-    gap: .35rem;
-  }
-  .course-years{
-    padding-top: 0;
-  }
+/* modest indent cue without bullets */
+.teaching-list li::before{
+  content: "—";
+  display: inline-block;
+  width: 1.2rem;
+  color: rgba(0,0,0,.35);
 }
 
 /* ---------------- Footer ---------------- */
