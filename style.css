@@ -1,10 +1,6 @@
 /* =========================================================
-   Sven Heim – unified academic design (section titles stable)
-   - Keep H2 section titles as-is
-   - Make item/paper titles smaller (Research/Expertises/Teaching)
-   - Teaching: institution label + year-right grid
-   - Teaching: NO separators between courses
-   - FIX: consistent journal/em styling across Bio/News/Research
+   Sven Heim – unified academic design
+   Fix: italic/journal styles keep SAME font-size as surrounding text
    ========================================================= */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -49,22 +45,20 @@ a:hover{
 img{ max-width: 100%; height: auto; display: block; }
 
 /* =========================================================
-   FIX: Consistent journal/emphasis styling everywhere
-   (Bio text, News on index, Research meta, etc.)
+   CONSISTENT ITALICS:
+   - no font-size changes
+   - serif + italic only
    ========================================================= */
 em{
   font-family: var(--serif);
   font-style: italic;
-  font-size: 1.02em;
-  color: var(--text);
+  font-size: inherit;          /* critical: never shrink/grow */
+  line-height: inherit;
 }
-/* Ensure em inside muted blocks still matches tone */
-.bio em,
-.pub-item em,
-.meta em{
-  font-family: var(--serif);
-  font-style: italic;
-}
+
+/* If you want italics in places to remain sans-serif, override there:
+   e.g., .sub em { font-family: inherit; }
+*/
 
 /* ---------------- Header ---------------- */
 header{
@@ -186,8 +180,6 @@ main{
   max-width: 78ch;
 }
 .bio p{ margin-bottom: .7rem; }
-/* keep bio em consistent (global em already does this; this is harmless) */
-.bio em{ font-family: var(--serif); font-style: italic; }
 
 .links-row{
   display: flex;
@@ -231,7 +223,7 @@ main{
   }
 }
 
-/* ---------------- Section titles (KEEP as-is) ---------------- */
+/* ---------------- Section titles ---------------- */
 .section-title{
   font-size: 1rem;
   font-weight: 600;
@@ -258,7 +250,7 @@ main{
   margin-top: 1.0rem;
 }
 
-/* ---------------- Unified list item (Research-style) ---------------- */
+/* ---------------- Unified list item ---------------- */
 .pub-item{
   padding: 1.0rem 0;
   border-bottom: 1px solid var(--line-strong);
@@ -266,7 +258,6 @@ main{
 }
 .pub-item:last-child{ border-bottom: none; }
 
-/* Item/paper titles smaller than section title */
 .pub-item h3{
   font-size: .88rem;
   font-weight: 600;
@@ -282,8 +273,14 @@ main{
   color: var(--text3);
   margin-bottom: .35rem;
 }
-/* meta em uses global em; keep tone muted via meta color */
-.meta em{ color: var(--text2); }
+
+/* IMPORTANT: meta em is serif italic but SAME size */
+.meta em{
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: inherit;
+  color: var(--text2);
+}
 
 .pub-item p{
   font-size: .86rem;
@@ -293,7 +290,7 @@ main{
 }
 .pub-item p + p{ margin-top: .45rem; }
 
-/* Press links: wrap cleanly */
+/* Press links */
 .press-links{
   font-size: .78rem;
   color: var(--text3);
@@ -305,7 +302,7 @@ main{
 }
 .press-links a{ white-space: nowrap; }
 
-/* ---------------- Expertises legacy <ul class="content-list"> support ---------------- */
+/* Expertises legacy list */
 .content-list{
   list-style: none;
   padding-left: 0;
@@ -323,7 +320,7 @@ main{
 .content-list a{ font-weight: 600; color: var(--link); }
 .content-list a:hover{ color: var(--link-h); }
 
-/* ---------------- Teaching: years right aligned ---------------- */
+/* Teaching: years right aligned */
 .item-head{
   display: grid;
   grid-template-columns: 1fr auto;
@@ -352,22 +349,7 @@ main{
   .pub-item, .press-links, .content-list{ max-width: 100%; }
 }
 
-/* ---------------- Home News meta line (if used) ---------------- */
-.news-meta{
-  display: flex;
-  align-items: baseline;
-  gap: .35rem;
-  margin: .05rem 0 .35rem;
-  font-size: .72rem;
-  color: var(--text3);
-  letter-spacing: .06em;
-  text-transform: uppercase;
-}
-.news-year{ font-weight: 500; }
-.news-type{ font-weight: 600; }
-.news-sep{ opacity: .75; }
-
-/* ---------------- Footer ---------------- */
+/* Footer */
 footer{
   max-width: var(--w);
   margin: 0 auto;
