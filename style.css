@@ -1,23 +1,37 @@
+/* =========================================================
+   Sven Heim – stable clean layout (NO duplicate rules)
+   - no Interests block styles needed on home
+   - sharper separators for News
+   - stable hero photo position
+   - no "double line" under headings
+   ========================================================= */
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
+:root{
   --text: #2c2c2c;
   --text2: #4a4a4a;
   --text3: #777;
   --line: #e2e2e2;
-  --line-strong: rgba(0,0,0,.10); /* sharper separators for lists */
+
+  /* sharper separators between news items */
+  --line-strong: rgba(0,0,0,.14);
+
   --bg: #fafafa;
   --white: #fff;
+
   --link: #2b5278;
   --link-h: #1a3d5c;
+
   --serif: 'Crimson Pro', Georgia, serif;
   --sans: 'DM Sans', -apple-system, system-ui, sans-serif;
+
   --w: 1080px;
   --pad: 2.5rem;
 }
 
-html { font-size: 16px; scroll-behavior: smooth; }
-body {
+html{ font-size: 16px; scroll-behavior: smooth; }
+body{
   font-family: var(--sans);
   color: var(--text);
   background: var(--bg);
@@ -25,12 +39,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-a { color: var(--link); text-decoration: none; }
-a:hover { color: var(--link-h); }
-img { max-width: 100%; height: auto; display: block; }
+a{ color: var(--link); text-decoration: none; }
+a:hover{ color: var(--link-h); text-decoration: underline; text-decoration-color: rgba(43,82,120,.28); text-underline-offset: 3px; }
+img{ max-width: 100%; height: auto; display: block; }
 
-/* ---- Header ---- */
-header {
+/* ---------------- Header ---------------- */
+header{
   background: var(--bg);
   border-bottom: 1px solid var(--line);
   position: sticky;
@@ -38,40 +52,55 @@ header {
   z-index: 99;
 }
 
-.header-inner {
+.header-inner{
   max-width: var(--w);
   margin: 0 auto;
   padding: .7rem var(--pad);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
 }
 
-.site-name {
+.site-name{
   font-size: .95rem;
   font-weight: 600;
   color: var(--text);
   letter-spacing: .01em;
+  text-decoration: none;
 }
 
-nav { display: flex; gap: .2rem; }
-nav a {
+nav{
+  display: flex;
+  gap: .2rem;
+  align-items: center;
+}
+
+nav a{
   font-size: .82rem;
   font-weight: 500;
   color: var(--text2);
   padding: .28rem .55rem;
   border-radius: 4px;
+  text-decoration: none;
 }
-nav a:hover, nav a.active { color: var(--link); background: rgba(0,0,0,.04); }
 
-.nav-toggle {
+nav a:hover,
+nav a.active{
+  color: var(--link);
+  background: rgba(0,0,0,.04);
+  text-decoration: none;
+}
+
+.nav-toggle{
   display: none;
   background: none;
   border: none;
   cursor: pointer;
   padding: .5rem;
 }
-.nav-toggle span {
+
+.nav-toggle span{
   display: block;
   width: 18px;
   height: 1.5px;
@@ -79,26 +108,36 @@ nav a:hover, nav a.active { color: var(--link); background: rgba(0,0,0,.04); }
   margin: 4px 0;
 }
 
-@media (max-width: 700px) {
-  .nav-toggle { display: block; }
-  nav { display: none; width: 100%; flex-direction: column; }
-  nav.open { display: flex; }
-  .header-inner { flex-wrap: wrap; }
+@media (max-width: 700px){
+  .nav-toggle{ display: block; }
+  nav{ display: none; width: 100%; flex-direction: column; align-items: flex-start; }
+  nav.open{ display: flex; }
+  .header-inner{ flex-wrap: wrap; }
 }
 
-/* ---- Main ---- */
-main { max-width: var(--w); margin: 0 auto; padding: 2.5rem var(--pad) 4rem; }
+/* ---------------- Main ---------------- */
+main{
+  max-width: var(--w);
+  margin: 0 auto;
+  padding: 2.5rem var(--pad) 4rem;
+}
 
-/* ---- Hero ---- */
-.hero {
+/* ---------------- Hero ---------------- */
+.hero{
   display: flex;
   gap: 2.8rem;
-  align-items: flex-start; /* important: prevents the photo from "floating" awkwardly */
+  align-items: flex-start;          /* stable: photo never "floats" */
   margin-bottom: 1.8rem;
 }
 
-/* Photo on the right (as in your cleaner old version) */
-.hero-photo {
+/* content on the left */
+.hero-content{
+  flex: 1;
+  min-width: 0;
+}
+
+/* photo on the right */
+.hero-photo{
   width: 250px;
   min-width: 250px;
   height: 250px;
@@ -106,39 +145,48 @@ main { max-width: var(--w); margin: 0 auto; padding: 2.5rem var(--pad) 4rem; }
   object-fit: cover;
   object-position: center 20%;
   order: 2;
-  margin-top: 2.05rem; /* aligns photo start closer to the paragraph block (not the subline) */
+
+  /* lock position: choose ONE value and keep it */
+  margin-top: 2.05rem;              /* aligns with start of paragraph block (not the subline) */
 }
 
-.hero-content { flex: 1; order: 1; }
-.hero-content h1 {
+/* headline + subtitle */
+.hero-content h1{
   font-size: 1.75rem;
   font-weight: 600;
   color: var(--text);
   margin-bottom: .1rem;
 }
-.hero-content .sub {
+
+.sub{
   font-size: .9rem;
   color: var(--text3);
   margin-bottom: 1rem;
 }
-.hero-content .sub a { color: var(--link); }
 
-.bio {
+/* bio */
+.bio{
   font-size: .9rem;
   color: var(--text2);
   line-height: 1.72;
 }
-.bio p { margin-bottom: .7rem; }
-.bio em {
+.bio p{ margin-bottom: .7rem; }
+.bio em{
   font-family: var(--serif);
   font-style: italic;
   color: var(--text);
   font-size: 1.06em;
 }
 
-/* Link "buttons" (clean, academic) */
-.links-row { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: 1rem; }
-.links-row a {
+/* link buttons row (clean, academic) */
+.links-row{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+  margin-top: 1rem;
+}
+
+.links-row a{
   font-size: .77rem;
   font-weight: 500;
   color: var(--link);
@@ -146,31 +194,41 @@ main { max-width: var(--w); margin: 0 auto; padding: 2.5rem var(--pad) 4rem; }
   border: 1px solid var(--line);
   border-radius: 3px;
   background: var(--white);
+  text-decoration: none;
 }
-.links-row a:hover { border-color: var(--link); }
-.links-row .cv-link {
+
+.links-row a:hover{
+  border-color: var(--link);
+  text-decoration: none;
+}
+
+.links-row .cv-link{
   background: var(--link);
   color: var(--white);
   border-color: var(--link);
   font-weight: 600;
 }
-.links-row .cv-link:hover { background: var(--link-h); border-color: var(--link-h); color: var(--white); }
 
-@media (max-width: 700px) {
-  .hero { flex-direction: column; gap: 1.5rem; }
-  .hero-photo {
+.links-row .cv-link:hover{
+  background: var(--link-h);
+  border-color: var(--link-h);
+  color: var(--white);
+}
+
+@media (max-width: 700px){
+  .hero{ flex-direction: column; gap: 1.5rem; }
+  .hero-photo{
     width: 180px;
     min-width: 180px;
     height: 180px;
     order: 0;
     align-self: center;
-    margin-top: 0; /* reset on mobile */
+    margin-top: 0;                  /* reset on mobile */
   }
-  .hero-content { order: 1; }
 }
 
-/* ---- Sections ---- */
-.section-title {
+/* ---------------- Section titles ---------------- */
+.section-title{
   font-size: 1rem;
   font-weight: 600;
   color: var(--text);
@@ -179,67 +237,57 @@ main { max-width: var(--w); margin: 0 auto; padding: 2.5rem var(--pad) 4rem; }
   border-bottom: 1px solid var(--line);
 }
 
-/* FIX: remove the "second line" under headings (e.g., Journal Publications) */
-.section-title + .pub-item { border-top: none !important; }
+/* IMPORTANT FIX: avoids "double line" effect under a title */
+.section-title + .pub-item{ border-top: none; }
 
-/* ---- Headings in lists ---- */
-h3 {
-  font-size: .93rem;
-  font-weight: 600;
-  color: var(--text);
-  margin: 1.3rem 0 .4rem;
-}
-
-/* ---- News meta (academic, non-marketing) ---- */
-.news-meta {
+/* ---------------- News meta line ---------------- */
+.news-meta{
   display: flex;
   align-items: baseline;
   gap: .35rem;
-  margin: .1rem 0 .35rem;
+  margin: .05rem 0 .35rem;
   font-size: .72rem;
   color: var(--text3);
   letter-spacing: .06em;
   text-transform: uppercase;
 }
-.news-sep { opacity: .75; }
-.news-year { font-weight: 500; }
-.news-type { font-weight: 600; }
 
-/* ---- Pub / News items ---- */
-.pub-item {
+.news-year{ font-weight: 500; }
+.news-type{ font-weight: 600; }
+.news-sep{ opacity: .75; }
+
+/* ---------------- News items ---------------- */
+.pub-item{
   padding: 1.05rem 0;
-  border-bottom: 1px solid var(--line-strong); /* sharper separation */
+  border-bottom: 1px solid var(--line-strong);
 }
-.pub-item:last-child { border-bottom: none; }
 
-.pub-item h3 { font-size: .88rem; margin: 0 0 .2rem; line-height: 1.42; }
-.pub-item h3 a { color: var(--text); }
-.pub-item h3 a:hover { color: var(--link); }
+.pub-item:last-child{
+  border-bottom: none;
+}
 
-.pub-item .meta { font-size: .78rem; color: var(--text3); }
-.pub-item .meta em { font-family: var(--serif); font-style: italic; color: var(--text2); font-size: 1.06em; }
-
-.pub-item p {
+.pub-item p{
   font-size: .84rem;
   color: var(--text2);
   margin-top: .25rem;
   line-height: 1.55;
 }
-.pub-item p + p { margin-top: .45rem; }
 
-.pub-item .press-links { font-size: .75rem; margin-top: .2rem; }
-.pub-item .press-links a { margin-right: .35rem; }
+.pub-item p + p{
+  margin-top: .45rem;
+}
 
-/* ---- Lists ---- */
-.content-list { list-style: none; }
-.content-list li { padding: .35rem 0; font-size: .88rem; color: var(--text2); }
+.pub-item .press-links{
+  font-size: .75rem;
+  margin-top: .2rem;
+}
 
-/* ---- Contact ---- */
-.contact-info { font-size: .9rem; line-height: 1.85; color: var(--text2); }
-.contact-info strong { color: var(--text); font-weight: 600; }
+.pub-item .press-links a{
+  margin-right: .35rem;
+}
 
-/* ---- Footer ---- */
-footer {
+/* ---------------- Footer ---------------- */
+footer{
   max-width: var(--w);
   margin: 0 auto;
   padding: 1.2rem var(--pad);
