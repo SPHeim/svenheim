@@ -5,6 +5,7 @@
   --text2: #4a4a4a;
   --text3: #777;
   --line: #e2e2e2;
+  --line-strong: rgba(0,0,0,.12); /* sharper separators */
   --bg: #fafafa;
   --white: #fff;
   --link: #2b5278;
@@ -77,16 +78,41 @@ main { max-width: var(--w); margin: 0 auto; padding: 2.5rem var(--pad) 4rem; }
 .section-title { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--text); margin: 2.8rem 0 .7rem; padding-bottom: .35rem; border-bottom: 1px solid var(--line); }
 h3 { font-family: var(--sans); font-size: .93rem; font-weight: 600; color: var(--text); margin: 1.3rem 0 .4rem; }
 
+/* ---- News meta (year + type) ---- */
+.news-meta{
+  display: flex;
+  align-items: baseline;
+  gap: .5rem;
+  margin-bottom: .35rem;
+}
+
+.news-year{
+  font-size: .74rem;
+  color: var(--text3);
+}
+
+.news-type{
+  font-size: .72rem;
+  font-weight: 600;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  padding: .14rem .45rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent; /* non-marketing */
+}
+
 /* ---- Pub items ---- */
-.pub-item { padding: .9rem 0; border-bottom: 1px solid rgba(0,0,0,.05); }
+/* sharper separation: use var(--line-strong) + top border on first item */
+.pub-item { padding: 1.05rem 0; border-bottom: 1px solid var(--line-strong); }
+.pub-item:first-of-type { border-top: 1px solid var(--line-strong); }
 .pub-item:last-child { border-bottom: none; }
-.pub-item h3 { font-size: .88rem; margin: 0 0 .2rem; line-height: 1.42; }
-.pub-item h3 a { color: var(--text); }
-.pub-item h3 a:hover { color: var(--link); }
-.pub-item .meta { font-size: .78rem; color: var(--text3); }
-.pub-item .meta em { font-family: var(--serif); font-style: italic; color: var(--text2); font-size: 1.06em; }
+
 .pub-item p { font-size: .84rem; color: var(--text2); margin-top: .25rem; line-height: 1.55; }
-.pub-item .press-links { font-size: .75rem; margin-top: .2rem; }
+.pub-item p + p { margin-top: .45rem; } /* a bit more structure between paragraphs */
+
+.pub-item .press-links { font-size: .75rem; margin-top: .3rem; }
 .pub-item .press-links a { margin-right: .35rem; }
 
 /* ---- Lists ---- */
