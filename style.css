@@ -24,8 +24,7 @@
   --w: 1080px;
   --pad: 2.5rem;
 
-  /* Photo tuning:
-     smaller % = focus higher (less top crop), larger % = focus lower */
+  /* Photo crop tuning */
   --photo-focus-y: 8%;
   --photo-focus-y-mobile: 10%;
 }
@@ -49,12 +48,7 @@ a:hover{
 img{ max-width: 100%; height: auto; display: block; }
 
 /* Italics consistent (no serif swap) */
-em{
-  font-family: inherit;
-  font-style: italic;
-  font-size: inherit;
-  line-height: inherit;
-}
+em{ font-family: inherit; font-style: italic; font-size: inherit; line-height: inherit; }
 
 /* ---------------- Header ---------------- */
 header{
@@ -83,11 +77,7 @@ header{
   text-decoration: none;
 }
 
-nav{
-  display: flex;
-  gap: .2rem;
-  align-items: center;
-}
+nav{ display: flex; gap: .2rem; align-items: center; }
 
 nav a{
   font-size: .82rem;
@@ -135,7 +125,7 @@ main{
   padding: 2.5rem var(--pad) 4rem;
 }
 
-/* ---------------- Home hero ---------------- */
+/* ---------------- Hero (Home) ---------------- */
 .hero{
   display: flex;
   gap: 2.8rem;
@@ -145,7 +135,6 @@ main{
 
 .hero-content{ flex: 1; min-width: 0; }
 
-/* PHOTO: less top crop via object-position Y */
 .hero-photo{
   width: 250px;
   min-width: 250px;
@@ -153,10 +142,9 @@ main{
   border-radius: 50%;
   object-fit: cover;
   object-position: center var(--photo-focus-y);
-  order: 2;
+  order: 2;           /* desktop: photo right */
   margin-top: 0;
 
-  /* cleaner separation from text */
   background: #fff;
   border: 1px solid var(--line);
   box-shadow: 0 10px 24px rgba(0,0,0,.06);
@@ -215,15 +203,30 @@ main{
   color: var(--white);
 }
 
+/* ✅ MOBILE: show photo FIRST, then text */
 @media (max-width: 700px){
-  .hero{ flex-direction: column; gap: 1.5rem; align-items: center; }
+  .hero{
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: center;
+  }
+
+  /* photo appears first */
   .hero-photo{
-    width: 180px;
-    min-width: 180px;
-    height: 180px;
-    order: 0;
+    width: 190px;
+    min-width: 190px;
+    height: 190px;
+    order: -1; /* <- key change: put photo before .hero-content */
     object-position: center var(--photo-focus-y-mobile);
   }
+
+  /* text follows */
+  .hero-content{
+    width: 100%;
+    text-align: center;
+  }
+
+  .links-row{ justify-content: center; }
 }
 
 /* ---------------- Section titles ---------------- */
@@ -236,24 +239,22 @@ main{
   border-bottom: 1px solid var(--line);
 }
 
-/* ---------------- Subsection titles ---------------- */
-.subsection-title{
-  font-size: .80rem;
-  font-weight: 600;
+/* ---------------- News meta line ---------------- */
+.news-meta{
+  display: flex;
+  align-items: baseline;
+  gap: .35rem;
+  margin: .05rem 0 .35rem;
+  font-size: .72rem;
   color: var(--text3);
-  letter-spacing: .08em;
+  letter-spacing: .06em;
   text-transform: uppercase;
-  margin: 1.55rem 0 .6rem;
-  padding-top: .9rem;
-  border-top: 1px solid var(--line);
 }
-.section-title + .subsection-title{
-  border-top: none;
-  padding-top: 0;
-  margin-top: 1.0rem;
-}
+.news-year{ font-weight: 500; }
+.news-type{ font-weight: 600; }
+.news-sep{ opacity: .75; }
 
-/* ---------------- Unified list item ---------------- */
+/* ---------------- Items / lists ---------------- */
 .pub-item{
   padding: 1.0rem 0;
   border-bottom: 1px solid var(--line-strong);
