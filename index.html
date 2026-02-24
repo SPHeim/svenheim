@@ -1,244 +1,298 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+/* =========================================================
+   Sven Heim – stable clean layout (NO duplicate rules)
+   - no Interests block styles needed on home
+   - sharper separators for News
+   - stable hero photo position
+   - no "double line" under headings
+   ========================================================= */
 
-  <title>Sven Heim – Economist</title>
-  <meta name="description" content="Sven Heim is an economist and associate professor at Mines Paris – PSL (CERNA). Research in antitrust, industrial organization, energy economics.">
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  <!-- IMPORTANT: switch to https://www.sven-heim.com/ once domain points here -->
-  <link rel="canonical" href="https://spheim.github.io/svenheim/">
+:root{
+  --text: #2c2c2c;
+  --text2: #4a4a4a;
+  --text3: #777;
+  --line: #e2e2e2;
 
-  <meta property="og:type" content="profile" />
-  <meta property="og:title" content="Sven Heim – Economist" />
-  <meta property="og:description" content="Economist and Associate Professor at CERNA, Mines Paris – PSL. Antitrust, Industrial Organization, Energy Economics." />
-  <meta property="og:url" content="https://spheim.github.io/svenheim/" />
-  <meta property="og:image" content="https://spheim.github.io/svenheim/photo.jpg" />
+  /* sharper separators between news items */
+  --line-strong: rgba(0,0,0,.14);
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  --bg: #fafafa;
+  --white: #fff;
 
-  <!-- cache-bust: change number when updating CSS -->
-  <link rel="stylesheet" href="style.css?v=20260224-100">
+  --link: #2b5278;
+  --link-h: #1a3d5c;
 
-  <!-- Schema.org -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "@id": "https://spheim.github.io/svenheim/#person",
-    "name": "Sven Heim",
-    "givenName": "Sven",
-    "familyName": "Heim",
-    "jobTitle": "Associate Professor of Economics",
-    "description": "Sven Heim is an economist and associate professor at the Center for Industrial Economics (CERNA) at Mines Paris – PSL University. His research areas include antitrust and competition economics, empirical industrial organization, energy and environmental economics, and information economics.",
-    "url": "https://spheim.github.io/svenheim/",
-    "image": "https://spheim.github.io/svenheim/photo.jpg",
-    "email": "mailto:sven.heim@minesparis.psl.eu",
-    "telephone": "+33140519462",
-    "knowsAbout": [
-      "Competition & Regulation",
-      "Law and Economics",
-      "Applied Econometrics",
-      "Industrial Organization",
-      "Energy Economics",
-      "Environmental Economics",
-      "Information Economics"
-    ],
-    "hasOccupation": { "@type": "Occupation", "name": "Economist" },
-    "affiliation": [
-      {
-        "@type": "Organization",
-        "name": "Mines Paris – PSL University",
-        "department": { "@type": "Organization", "name": "CERNA – Center for Industrial Economics" },
-        "url": "https://www.cerna.minesparis.psl.eu/"
-      },
-      { "@type": "Organization", "name": "ZEW – Leibniz Centre for European Economic Research", "url": "https://www.zew.de/en/team/she" },
-      { "@type": "Organization", "name": "CEPR – Centre for Economic Policy Research", "url": "https://cepr.org/about/people/sven-heim" },
-      { "@type": "Organization", "name": "Paris Center for Law and Economics (CRED)", "url": "http://cred.u-paris2.fr/" },
-      { "@type": "Organization", "name": "WU Vienna University of Economics and Business", "url": "https://www.wu.ac.at/regulation/members/affiliate-research-staff/sven-heim" }
-    ],
-    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Justus Liebig University Giessen" },
-    "sameAs": [
-      "https://scholar.google.com/citations?user=23YDor4AAAAJ",
-      "https://orcid.org/0000-0001-9705-4600",
-      "https://ideas.repec.org/f/phe766.html",
-      "https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=1784867",
-      "https://www.zew.de/en/team/she",
-      "https://cepr.org/about/people/sven-heim",
-      "https://www.cerna.minesparis.psl.eu/Members/Faculty/Sven-Heim/",
-      "https://www.wikidata.org/wiki/Q136767967",
-      "https://www.researchgate.net/profile/Sven-Heim",
-      "https://www.concurrences.com/en/authors/heim-sven"
-    ],
-    "worksFor": { "@type": "Organization", "name": "Mines Paris – PSL University", "url": "https://www.minesparis.psl.eu/" }
+  --serif: 'Crimson Pro', Georgia, serif;
+  --sans: 'DM Sans', -apple-system, system-ui, sans-serif;
+
+  --w: 1080px;
+  --pad: 2.5rem;
+}
+
+html{ font-size: 16px; scroll-behavior: smooth; }
+body{
+  font-family: var(--sans);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.68;
+  -webkit-font-smoothing: antialiased;
+}
+
+a{ color: var(--link); text-decoration: none; }
+a:hover{ color: var(--link-h); text-decoration: underline; text-decoration-color: rgba(43,82,120,.28); text-underline-offset: 3px; }
+img{ max-width: 100%; height: auto; display: block; }
+
+/* ---------------- Header ---------------- */
+header{
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+
+.header-inner{
+  max-width: var(--w);
+  margin: 0 auto;
+  padding: .7rem var(--pad);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.site-name{
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: .01em;
+  text-decoration: none;
+}
+
+nav{
+  display: flex;
+  gap: .2rem;
+  align-items: center;
+}
+
+nav a{
+  font-size: .82rem;
+  font-weight: 500;
+  color: var(--text2);
+  padding: .28rem .55rem;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+nav a:hover,
+nav a.active{
+  color: var(--link);
+  background: rgba(0,0,0,.04);
+  text-decoration: none;
+}
+
+.nav-toggle{
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: .5rem;
+}
+
+.nav-toggle span{
+  display: block;
+  width: 18px;
+  height: 1.5px;
+  background: var(--text2);
+  margin: 4px 0;
+}
+
+@media (max-width: 700px){
+  .nav-toggle{ display: block; }
+  nav{ display: none; width: 100%; flex-direction: column; align-items: flex-start; }
+  nav.open{ display: flex; }
+  .header-inner{ flex-wrap: wrap; }
+}
+
+/* ---------------- Main ---------------- */
+main{
+  max-width: var(--w);
+  margin: 0 auto;
+  padding: 2.5rem var(--pad) 4rem;
+}
+
+/* ---------------- Hero ---------------- */
+.hero{
+  display: flex;
+  gap: 2.8rem;
+  align-items: flex-start;          /* stable: photo never "floats" */
+  margin-bottom: 1.8rem;
+}
+
+/* content on the left */
+.hero-content{
+  flex: 1;
+  min-width: 0;
+}
+
+/* photo on the right */
+.hero-photo{
+  width: 250px;
+  min-width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 20%;
+  order: 2;
+
+  /* lock position: choose ONE value and keep it */
+  margin-top: 2.05rem;              /* aligns with start of paragraph block (not the subline) */
+}
+
+/* headline + subtitle */
+.hero-content h1{
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: .1rem;
+}
+
+.sub{
+  font-size: .9rem;
+  color: var(--text3);
+  margin-bottom: 1rem;
+}
+
+/* bio */
+.bio{
+  font-size: .9rem;
+  color: var(--text2);
+  line-height: 1.72;
+}
+.bio p{ margin-bottom: .7rem; }
+.bio em{
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--text);
+  font-size: 1.06em;
+}
+
+/* link buttons row (clean, academic) */
+.links-row{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+  margin-top: 1rem;
+}
+
+.links-row a{
+  font-size: .77rem;
+  font-weight: 500;
+  color: var(--link);
+  padding: .22rem .5rem;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: var(--white);
+  text-decoration: none;
+}
+
+.links-row a:hover{
+  border-color: var(--link);
+  text-decoration: none;
+}
+
+.links-row .cv-link{
+  background: var(--link);
+  color: var(--white);
+  border-color: var(--link);
+  font-weight: 600;
+}
+
+.links-row .cv-link:hover{
+  background: var(--link-h);
+  border-color: var(--link-h);
+  color: var(--white);
+}
+
+@media (max-width: 700px){
+  .hero{ flex-direction: column; gap: 1.5rem; }
+  .hero-photo{
+    width: 180px;
+    min-width: 180px;
+    height: 180px;
+    order: 0;
+    align-self: center;
+    margin-top: 0;                  /* reset on mobile */
   }
-  </script>
+}
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "@id": "https://spheim.github.io/svenheim/#website",
-    "url": "https://spheim.github.io/svenheim/",
-    "name": "Sven Heim – Economist",
-    "author": { "@id": "https://spheim.github.io/svenheim/#person" }
-  }
-  </script>
-</head>
+/* ---------------- Section titles ---------------- */
+.section-title{
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 2.8rem 0 .7rem;
+  padding-bottom: .35rem;
+  border-bottom: 1px solid var(--line);
+}
 
-<body>
+/* IMPORTANT FIX: avoids "double line" effect under a title */
+.section-title + .pub-item{ border-top: none; }
 
-<header>
-  <div class="header-inner">
-    <a href="index.html" class="site-name">Sven Heim</a>
+/* ---------------- News meta line ---------------- */
+.news-meta{
+  display: flex;
+  align-items: baseline;
+  gap: .35rem;
+  margin: .05rem 0 .35rem;
+  font-size: .72rem;
+  color: var(--text3);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
 
-    <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('nav').classList.toggle('open')">
-      <span></span><span></span><span></span>
-    </button>
+.news-year{ font-weight: 500; }
+.news-type{ font-weight: 600; }
+.news-sep{ opacity: .75; }
 
-    <nav>
-      <a href="index.html" class="active">Home</a>
-      <a href="research.html">Research</a>
-      <a href="teaching.html">Teaching</a>
-      <a href="expertises.html">Expertises</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
+/* ---------------- News items ---------------- */
+.pub-item{
+  padding: 1.05rem 0;
+  border-bottom: 1px solid var(--line-strong);
+}
 
-<main>
+.pub-item:last-child{
+  border-bottom: none;
+}
 
-  <div class="hero">
-    <div class="hero-content">
-      <h1>Sven Heim</h1>
-      <p class="sub">
-        Associate Professor of Economics ·
-        <a href="https://www.cerna.minesparis.psl.eu/" target="_blank" rel="noopener noreferrer">CERNA</a>,
-        <a href="https://www.minesparis.psl.eu/" target="_blank" rel="noopener noreferrer">Mines Paris – PSL</a>
-      </p>
+.pub-item p{
+  font-size: .84rem;
+  color: var(--text2);
+  margin-top: .25rem;
+  line-height: 1.55;
+}
 
-      <div class="bio">
-        <p>
-          I am an associate professor of economics at the Center for Industrial Economics (CERNA) at
-          <a href="https://www.minesparis.psl.eu/" target="_blank" rel="noopener noreferrer">Mines Paris – PSL</a>.
-          I am also a Research Associate at <a href="https://www.zew.de/en/team/she" target="_blank" rel="noopener noreferrer">ZEW Mannheim</a>,
-          a Research Member at the <a href="http://cred.u-paris2.fr/" target="_blank" rel="noopener noreferrer">Paris Center for Law and Economics (CRED)</a>
-          at the University of Paris II Panthéon-Assas, Affiliate Researcher at
-          <a href="https://www.wu.ac.at/regulation/members/affiliate-research-staff/sven-heim" target="_blank" rel="noopener noreferrer">WU Vienna</a>,
-          and a Research Affiliate at the <a href="https://cepr.org/about/people/sven-heim" target="_blank" rel="noopener noreferrer">Centre for Economic Policy Research (CEPR)</a>.
-        </p>
+.pub-item p + p{
+  margin-top: .45rem;
+}
 
-        <p>
-          My research sits at the intersection of industrial organization, competition policy, and energy economics. A central strand of my work examines how minority ownership links between competing firms shape their incentives to compete, innovate, and collude. I also study how information frictions and consumer search shape pricing strategies and consumer behavior, and the effectiveness of state aid and EU competition policy. My papers on these topics have been published in the <em>American Economic Journal: Microeconomics</em>, <em>Journal of Public Economics</em>, <em>Journal of Political Economy Microeconomics</em>, and the <em>European Economic Review</em>.
-        </p>
+.pub-item .press-links{
+  font-size: .75rem;
+  margin-top: .2rem;
+}
 
-        <p>
-          In addition, I work on energy and environmental economics, where I study the economics of the energy transition and the design of electricity markets.
-        </p>
+.pub-item .press-links a{
+  margin-right: .35rem;
+}
 
-        <p>
-          I advise institutions such as the European Commission and the German Federal Ministry of Economic Affairs and Energy, and serve as a court expert in cartel cases.
-        </p>
-      </div>
-
-      <div class="links-row">
-        <a href="mailto:sven.heim@minesparis.psl.eu">E-mail</a>
-        <a href="https://www.cerna.minesparis.psl.eu/Members/Faculty/Sven-Heim/" target="_blank" rel="noopener noreferrer">Faculty website</a>
-        <a href="https://scholar.google.com/citations?user=23YDor4AAAAJ&hl=de" target="_blank" rel="noopener noreferrer">Google Scholar</a>
-        <a href="https://orcid.org/0000-0001-9705-4600" target="_blank" rel="noopener noreferrer">ORCID</a>
-        <a href="https://ideas.repec.org/f/phe766.html" target="_blank" rel="noopener noreferrer">IDEAS/RePEc</a>
-        <a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=1784867" target="_blank" rel="noopener noreferrer">SSRN</a>
-        <a href="https://www.dropbox.com/scl/fi/ykgxmuvk9oskc0qu7upg4/cv_sh_20251010.pdf?rlkey=qvfu8qjtoxxg0te70fbv1rabx&st=mfirjs3y&dl=0"
-           target="_blank" rel="noopener noreferrer" class="cv-link">Download CV</a>
-      </div>
-    </div>
-
-    <img class="hero-photo" src="photo.jpg" alt="Sven Heim">
-  </div>
-
-  <h2 class="section-title">News</h2>
-
-  <div class="pub-item">
-    <div class="news-meta">
-      <span class="news-year">2025</span><span class="news-sep">·</span><span class="news-type">Publication</span>
-    </div>
-    <p>Our paper <a href="https://www.sciencedirect.com/science/article/pii/S0047272725001665" target="_blank" rel="noopener noreferrer">Support for Renewable Energy: The Case of Wind Power</a>, joint with Ulrich Wagner (University of Mannheim) and Robert Germeshausen (TransnetBW), has been published in the <em>Journal of Public Economics</em>.</p>
-    <p><strong>Abstract</strong></p>
-    <p>The rise of societal goals like climate change mitigation and energy security calls for rapid capacity growth in renewable electricity sources, yet citizens' support is put to a test when such technologies emit negative local externalities. We estimate the impact of wind turbine deployment on granular measures of revealed preferences for renewable electricity in product and political markets. We address potentially endogenous siting of turbines with an IV design that exploits quasi-experimental variation in profitability induced by subsidies. We find that wind turbines significantly reduce citizens' support locally, but this effect quickly fades with distance from the site. We assess policy instruments for enhancing citizens' support for renewable energy in light of our results.</p>
-  </div>
-
-  <div class="pub-item">
-    <div class="news-meta">
-      <span class="news-year">2023</span><span class="news-sep">·</span><span class="news-type">Grant</span>
-    </div>
-    <p>My proposal <a href="https://anr.fr/Project-ANR-23-CE26-0017" target="_blank" rel="noopener noreferrer">Minority Share Acquisitions, Innovation and Competition – MINCOM</a> (ANR-23-CE26-0017) was accepted for funding by the French National Research Agency (ANR). The project, coordinated at Mines Paris, examines how minority equity stakes between competitors affect innovation incentives and competition, and how firms adjust their behavior following cartel breakdowns. Two PhD students are already working on the project, Emilie Feyler (external PhD student, NERA New York) and Santiago Espinosa Moyano.</p>
-  </div>
-
-  <div class="pub-item">
-    <div class="news-meta">
-      <span class="news-year">2023</span><span class="news-sep">·</span><span class="news-type">Award</span>
-    </div>
-    <p>The article <a href="https://www.aeaweb.org/articles?id=10.1257/mic.20190117&&from=f" target="_blank" rel="noopener noreferrer">The Anticompetitive Effects of Minority Share Acquisitions: Evidence from the Introduction of National Leniency Programs</a> (with Kai Hüschelrath, Ulrich Laitenberger and Yossi Spiegel) has been nominated for the Antitrust Writing Awards 2023 in the category "Economics".</p>
-    <p>Feel free to vote for it :)</p>
-    <p><a href="https://awards.concurrences.com/en/awards/2023/academic-articles/the-anticompetitive-effects-of-minority-share-acquisitions-evidence-from-the" target="_blank" rel="noopener noreferrer">Antitrust Writing Awards 2023</a></p>
-  </div>
-
-  <div class="pub-item">
-    <div class="news-meta">
-      <span class="news-year">2024</span><span class="news-sep">·</span><span class="news-type">Publication</span>
-    </div>
-    <p>The paper <a href="https://www.journals.uchicago.edu/doi/epdf/10.1086/725335" target="_blank" rel="noopener noreferrer">Incumbency Advantages: Price Dispersion, Price Discrimination and Consumer Search at Online Platforms</a>, (with Klaus Gugler, Maarten Janssen and Mario Liebensteiner) has now been accepted for publication in the <em>Journal of Political Economy Microeconomics</em>.</p>
-    <p><strong>Abstract</strong></p>
-    <p>When lower prices are only available to consumers who search, firms can price discriminate based on search. We study local German electricity retail markets where non-searching consumers pay the incumbent's baseline tariff. To observe other prices, consumers access an online platform. Pricing and search patterns differ substantially across local markets. Using panel data, we show that in local markets with more search, incumbents have higher baseline tariffs, while incumbent's and entrants' online tariffs are lower. In a theoretical model, we discuss when an incumbent has an incentive to differentiate tariffs and the welfare properties of banning such price discrimination practices.</p>
-  </div>
-
-  <div class="pub-item">
-    <div class="news-meta">
-      <span class="news-year">2022</span><span class="news-sep">·</span><span class="news-type">Publication</span>
-    </div>
-    <p>My research on <a href="https://www.aeaweb.org/articles?id=10.1257/mic.20190117&&from=f" target="_blank" rel="noopener noreferrer">The Anticompetitive Effects of Minority Share Acquisitions: Evidence from the Introduction of National Leniency Programs</a> (with Kai Hüschelrath, Ulrich Laitenberger and Yossi Spiegel) has just been published in the <em>American Economic Journal: Microeconomics</em> Vol.14 No.1, February 2022 (p.366-410).</p>
-    <p><strong>Abstract</strong></p>
-    <p>We address the growing concern that minority shareholding (MS) in rival firms may lessen competition, using the introduction of national leniency programs (LPs) as a shock that destabilizes collusive agreements. Based on data from 63 countries, we find a large and significant immediate increase in domestic horizontal MS acquisitions once an LP is introduced but only in countries where the LP is deemed to be effective. There is no effect on non-horizontal or cross-border MS acquisitions. Our findings suggest that firms may use MS acquisitions to either stabilize collusive agreements or soften competition in the event that collusion breaks down.</p>
-    <p>An interview on the topic can be found <a href="https://www.zew.de/en/zew/news/minority-shareholdings-can-help-to-stabilise-cartels" target="_blank" rel="noopener noreferrer">here</a>.</p>
-  </div>
-
-  <div class="pub-item">
-    <div class="news-meta">
-      <span class="news-year">2022</span><span class="news-sep">·</span><span class="news-type">Working paper</span>
-    </div>
-    <p>A recent working paper on the effect of night curfews in Germany can be downloaded here:</p>
-    <p><a href="https://www.nature.com/articles/s41598-022-24086-9" target="_blank" rel="noopener noreferrer">Measuring the effects of COVID-19-related night curfews: Empirical evidence from Germany</a>, with Sammy de Haas and Georg Götz</p>
-    <p class="press-links">Press:
-      <a href="https://www.faz.net/aktuell/politik/inland/uni-giessen-naechtliche-ausgangssperren-laut-studie-nicht-effektiv-17304680.html" target="_blank" rel="noopener noreferrer">FAZ</a>
-      <a href="https://www.n-tv.de/panorama/Studie-haelt-Ausgangssperren-fuer-nicht-effektiv-article22507628.html" target="_blank" rel="noopener noreferrer">N-TV</a>
-      <a href="https://www.rtl.de/cms/was-bringen-naechtliche-ausgangssperren-studie-aus-hessen-mit-ernuechterndem-ergebnis-4745238.html" target="_blank" rel="noopener noreferrer">RTL</a>
-      <a href="https://www.swr.de/wissen/corona-notbremse-nutzen-von-ausgangssperren-aus-wissenschaftlicher-sicht-100.html" target="_blank" rel="noopener noreferrer">SWR</a>
-      <a href="https://www.bild.de/politik/inland/politik-inland/corona-massnahmen-grundlage-fuer-ausgangssperre-haltlos-76230490.bild.html" target="_blank" rel="noopener noreferrer">BILD</a>
-      <a href="https://www.tagesschau.de/investigativ/monitor/ausgangssperren-103.html" target="_blank" rel="noopener noreferrer">ARD</a>
-      <a href="https://www.fr.de/politik/corona-ausgangssperre-oxford-studie-coronavirus-pandemie-frankfurt-deutschland-notbremse-ltt-90480930.html" target="_blank" rel="noopener noreferrer">Frankfurter Rundschau</a>
-      <a href="https://taz.de/Bundesweite-Coronaregeln/!5762344/" target="_blank" rel="noopener noreferrer">taz</a>
-      <a href="https://www.nzz.ch/international/deutschland/ausgangssperren-corona-notbremse-ld.1614580" target="_blank" rel="noopener noreferrer">NZZ</a>
-      <a href="https://www.lexpress.fr/actualite/sciences/deconfinement-les-protocoles-sanitaires-anti-covid-sont-ils-suffisants_2150741.html" target="_blank" rel="noopener noreferrer">L'Express</a>
-      <a href="https://www.cnews.fr/monde/2021-05-04/couvre-feu-une-etude-allemande-remet-en-doute-lefficacite-du-dispositif-1077897" target="_blank" rel="noopener noreferrer">CNEWS</a>
-      <a href="https://www.smh.com.au/national/is-a-curfew-worth-trying-for-sydney-what-the-world-s-experts-have-to-say-20210730-p58elj.html" target="_blank" rel="noopener noreferrer">Sydney Morning Herald</a>
-      <a href="https://www.theage.com.au/national/is-a-curfew-worth-trying-for-sydney-what-the-world-s-experts-have-to-say-20210730-p58elj.html" target="_blank" rel="noopener noreferrer">The Age</a>
-      · ARD (TV), Welt (TV), SAT 1 (TV)
-    </p>
-  </div>
-
-  <div class="pub-item">
-    <div class="news-meta">
-      <span class="news-year">2020</span><span class="news-sep">·</span><span class="news-type">Book</span>
-    </div>
-    <p>The book "<a href="https://ec.europa.eu/competition-policy/publications/ex-post-economic-evaluations_en" target="_blank" rel="noopener noreferrer">Ex-post Economic Evaluation of Competition Policy: The EU Experience</a>", Edited by the European Commission, Wolters Kluwer, Brussels, 311-344, 2020, has been published. It covers several chapters dealing with the ex post evaluation of individual merger interventions, antitrust decisions and State aid cases as well as the broader, macroeconomic impact of EU competition policy. Among those one by Kai Hüschelrath, Philipp Schmidt-Dengler, Maurizio Strazzeri and me.</p>
-  </div>
-
-</main>
-
-<footer>&copy; 2025 Sven Heim</footer>
-
-</body>
-</html>
+/* ---------------- Footer ---------------- */
+footer{
+  max-width: var(--w);
+  margin: 0 auto;
+  padding: 1.2rem var(--pad);
+  border-top: 1px solid var(--line);
+  font-size: .73rem;
+  color: var(--text3);
+  text-align: center;
+}
