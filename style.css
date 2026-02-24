@@ -24,8 +24,14 @@ body{
 a{ color: inherit; text-decoration: underline; text-decoration-color: rgba(0,0,0,.22); text-underline-offset: 2px; }
 a:hover{ text-decoration-color: rgba(0,0,0,.55); }
 
+.wrap{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 18px 40px;
+}
+
 /* ========== Header ========== */
-header{
+.site-header{
   position: sticky;
   top: 0;
   background: rgba(247,247,247,.92);
@@ -86,13 +92,6 @@ nav a.active, nav a:hover{
   background: var(--text);
   margin: 4px 0;
   opacity: .85;
-}
-
-/* ========== Main ========== */
-main{
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 0 18px 40px;
 }
 
 /* ========== Hero ========== */
@@ -231,15 +230,41 @@ main{
   color: var(--text);
 }
 
+.pub-meta{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.pub-date{
+  font-size: .92rem;
+  color: var(--muted2);
+}
+
+.pub-tag{
+  font-size: .82rem;
+  color: rgba(17,17,17,.7);
+  border: 1px solid var(--border);
+  background: rgba(0,0,0,.02);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.label{
+  margin-bottom: 0;
+  color: var(--muted2);
+}
+
 /* Press links as chips */
-p.press-links{
+.press-links{
   display:flex;
   flex-wrap: wrap;
   gap: 8px;
   align-items: center;
 }
 
-p.press-links a{
+.press-links a{
   text-decoration: none;
   border: 1px solid var(--border);
   border-radius: 999px;
@@ -249,7 +274,7 @@ p.press-links a{
   color: rgba(17,17,17,.82);
   transition: background .15s;
 }
-p.press-links a:hover{
+.press-links a:hover{
   background: rgba(0,0,0,.04);
 }
 
@@ -300,11 +325,13 @@ p.press-links a:hover{
 .contact-info strong{ color: var(--text); }
 
 /* ========== Footer ========== */
-footer{
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 18px 18px;
+.site-footer{
   border-top: 1px solid var(--border);
+  margin-top: 0;
+}
+
+.footer-inner{
+  padding: 18px 18px;
   color: var(--muted2);
   font-size: .85rem;
 }
@@ -330,5 +357,5 @@ footer{
   nav.open{ display:flex; }
   nav a{ width: 100%; }
 
-  p.press-links{ justify-content: flex-start; }
+  .press-links{ justify-content: flex-start; }
 }
