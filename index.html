@@ -7,8 +7,7 @@
   <title>Sven Heim – Economist</title>
   <meta name="description" content="Sven Heim is an economist and associate professor at Mines Paris – PSL (CERNA). Research in antitrust, industrial organization, energy economics.">
 
-  <!-- While sven-heim.com still points elsewhere, keep canonical on GitHub Pages.
-       Switch to https://www.sven-heim.com/ once the domain points to this repo. -->
+  <!-- IMPORTANT: switch to https://www.sven-heim.com/ once domain points here -->
   <link rel="canonical" href="https://spheim.github.io/svenheim/">
 
   <meta property="og:type" content="profile" />
@@ -21,8 +20,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- bump version on CSS changes to avoid caching issues -->
-  <link rel="stylesheet" href="style.css?v=20260224-2">
+  <!-- cache-bust: change number when updating CSS -->
+  <link rel="stylesheet" href="style.css?v=20260224-100">
 
   <!-- Schema.org -->
   <script type="application/ld+json">
@@ -95,9 +94,11 @@
 <header>
   <div class="header-inner">
     <a href="index.html" class="site-name">Sven Heim</a>
+
     <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('nav').classList.toggle('open')">
       <span></span><span></span><span></span>
     </button>
+
     <nav>
       <a href="index.html" class="active">Home</a>
       <a href="research.html">Research</a>
@@ -111,8 +112,6 @@
 <main>
 
   <div class="hero">
-    <img class="hero-photo" src="photo.jpg" alt="Sven Heim">
-
     <div class="hero-content">
       <h1>Sven Heim</h1>
       <p class="sub">
@@ -121,7 +120,6 @@
         <a href="https://www.minesparis.psl.eu/" target="_blank" rel="noopener noreferrer">Mines Paris – PSL</a>
       </p>
 
-      <!-- current bio text -->
       <div class="bio">
         <p>
           I am an associate professor of economics at the Center for Industrial Economics (CERNA) at
@@ -153,9 +151,12 @@
         <a href="https://orcid.org/0000-0001-9705-4600" target="_blank" rel="noopener noreferrer">ORCID</a>
         <a href="https://ideas.repec.org/f/phe766.html" target="_blank" rel="noopener noreferrer">IDEAS/RePEc</a>
         <a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=1784867" target="_blank" rel="noopener noreferrer">SSRN</a>
-        <a href="https://www.dropbox.com/scl/fi/ykgxmuvk9oskc0qu7upg4/cv_sh_20251010.pdf?rlkey=qvfu8qjtoxxg0te70fbv1rabx&st=mfirjs3y&dl=0" target="_blank" rel="noopener noreferrer" class="cv-link">Download CV</a>
+        <a href="https://www.dropbox.com/scl/fi/ykgxmuvk9oskc0qu7upg4/cv_sh_20251010.pdf?rlkey=qvfu8qjtoxxg0te70fbv1rabx&st=mfirjs3y&dl=0"
+           target="_blank" rel="noopener noreferrer" class="cv-link">Download CV</a>
       </div>
     </div>
+
+    <img class="hero-photo" src="photo.jpg" alt="Sven Heim">
   </div>
 
   <h2 class="section-title">News</h2>
