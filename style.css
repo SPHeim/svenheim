@@ -24,7 +24,6 @@
   --w: 1080px;
   --pad: 2.5rem;
 
-  /* Photo crop tuning */
   --photo-focus-y: 8%;
   --photo-focus-y-mobile: 10%;
 }
@@ -142,7 +141,7 @@ main{
   border-radius: 50%;
   object-fit: cover;
   object-position: center var(--photo-focus-y);
-  order: 2;           /* desktop: photo right */
+  order: 2; /* desktop: photo right */
 
   background: #fff;
   border: 1px solid var(--line);
@@ -202,7 +201,7 @@ main{
   color: var(--white);
 }
 
-/* ✅ MOBILE: photo first, then name/sub centered, bio left */
+/* Mobile hero: photo first, then name/sub centered, bio left */
 @media (max-width: 700px){
   .hero{
     flex-direction: column;
@@ -214,18 +213,18 @@ main{
     width: 190px;
     min-width: 190px;
     height: 190px;
-    order: -1; /* photo above text */
+    order: -1;
     object-position: center var(--photo-focus-y-mobile);
   }
 
   .hero-content{
     width: 100%;
-    text-align: left; /* bio + general text left */
+    text-align: left;
   }
 
   .hero-content h1,
   .hero-content .sub{
-    text-align: center; /* header centered */
+    text-align: center;
   }
 
   .links-row{
@@ -320,7 +319,7 @@ main{
 .content-list a{ font-weight: 600; color: var(--link); }
 .content-list a:hover{ color: var(--link-h); }
 
-/* Teaching: years right aligned (optional helper) */
+/* Teaching helper: title + year grid */
 .item-head{
   display: grid;
   grid-template-columns: 1fr auto;
@@ -335,18 +334,69 @@ main{
   text-align: right;
 }
 
-/* Teaching: remove separators between courses (ONLY on Teaching page) */
-.page-teaching .pub-item{
-  border-bottom: none;
-  padding: .55rem 0;
-}
-.page-teaching .pub-item:last-child{ border-bottom: none; }
-.page-teaching .pub-item p{ margin-top: .15rem; }
+/* =========================================================
+   Teaching page polish (spacing + hierarchy)
+   ========================================================= */
 
+/* More breathing room after "Teaching" title */
+.page-teaching .section-title{
+  margin-top: 2.2rem;
+  margin-bottom: 1.35rem; /* larger gap before first university */
+}
+
+/* University headings */
+.page-teaching .subsection-title{
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 2.0rem 0 .65rem; /* BIGGER separation between universities */
+  letter-spacing: .01em;
+}
+
+/* First university should not start too far down */
+.page-teaching .section-title + .subsection-title{
+  margin-top: .25rem;
+}
+
+/* Courses: no separators, slightly tighter, but not cramped */
+.page-teaching .pub-item{
+  border-bottom: none;         /* you asked: no lines between courses */
+  padding: .60rem 0;
+  max-width: 92ch;
+}
+
+/* Add a bit of space between the last course and the next university */
+.page-teaching .pub-item + .subsection-title{
+  margin-top: 2.2rem;
+}
+
+/* Course title sizing: a touch smaller than uni heading */
+.page-teaching .pub-item .item-title{
+  font-size: .90rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+/* Year visually lighter and aligned */
+.page-teaching .pub-item .item-year{
+  font-size: .80rem;
+  color: var(--text3);
+}
+
+/* Course description spacing */
+.page-teaching .pub-item p{
+  margin-top: .25rem;
+}
+
+/* Mobile adjustments */
 @media (max-width: 700px){
   .item-head{ grid-template-columns: 1fr; gap: .25rem; }
   .item-year{ text-align: left; }
   .pub-item, .press-links, .content-list{ max-width: 100%; }
+
+  .page-teaching .subsection-title{
+    margin: 1.6rem 0 .55rem;
+  }
 }
 
 /* Footer */
