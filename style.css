@@ -1,6 +1,6 @@
 /* =========================================================
    Sven Heim – unified academic design
-   Fix: italic/journal styles keep SAME font-size as surrounding text
+   - Serif italics for journals, compensated size to match DM Sans visually
    ========================================================= */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -24,6 +24,10 @@
 
   --w: 1080px;
   --pad: 2.5rem;
+
+  /* ===== key tuning knobs ===== */
+  --em-scale: 1.06;   /* global serif italic compensation */
+  --em-scale-meta: 1.04; /* smaller compensation inside .meta */
 }
 
 html{ font-size: 16px; scroll-behavior: smooth; }
@@ -45,20 +49,22 @@ a:hover{
 img{ max-width: 100%; height: auto; display: block; }
 
 /* =========================================================
-   CONSISTENT ITALICS:
-   - no font-size changes
-   - serif + italic only
+   Serif italics, but visually matched in size
    ========================================================= */
 em{
   font-family: var(--serif);
   font-style: italic;
-  font-size: inherit;          /* critical: never shrink/grow */
+  font-size: calc(1em * var(--em-scale));
   line-height: inherit;
+  /* helps reduce the “caps feel huge” effect a bit */
+  letter-spacing: -0.01em;
 }
 
-/* If you want italics in places to remain sans-serif, override there:
-   e.g., .sub em { font-family: inherit; }
-*/
+/* In meta lines (research), keep it slightly more restrained */
+.meta em{
+  font-size: calc(1em * var(--em-scale-meta));
+  letter-spacing: -0.01em;
+}
 
 /* ---------------- Header ---------------- */
 header{
@@ -233,7 +239,7 @@ main{
   border-bottom: 1px solid var(--line);
 }
 
-/* ---------------- Subsection titles (Teaching institutions etc.) ---------------- */
+/* ---------------- Subsection titles ---------------- */
 .subsection-title{
   font-size: .80rem;
   font-weight: 600;
@@ -272,14 +278,6 @@ main{
   font-size: .80rem;
   color: var(--text3);
   margin-bottom: .35rem;
-}
-
-/* IMPORTANT: meta em is serif italic but SAME size */
-.meta em{
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: inherit;
-  color: var(--text2);
 }
 
 .pub-item p{
