@@ -6,7 +6,6 @@
   --muted2:rgba(17,17,17,.55);
   --border:#e6e6e6;
 
-  /* FIX: needs unit + give more room on desktop */
   --max: 1200px;
   --pad: 24px;
 
@@ -26,7 +25,6 @@ body{
   line-height: 1.6;
 }
 
-/* Links: ruhig, aber klar */
 a{
   color: inherit;
   text-decoration: underline;
@@ -105,45 +103,75 @@ nav a.active, nav a:hover{
   opacity: .85;
 }
 
-/* ========== Hero ========== */
+/* ========== Hero (grid with separated photo column) ========== */
 .hero{
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 24px;
+  padding: 26px;
   margin: 22px 0 16px;
-
-  display:flex;
-  gap: 32px;
-  align-items:flex-start; /* important for nice top alignment */
 }
 
-/* Desktop: put photo RIGHT to avoid “left squeezed, right empty” */
+/* Desktop layout */
 @media (min-width: 920px){
   .hero{
-    flex-direction: row-reverse;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px; /* text | photo column */
+    column-gap: 34px;
+    align-items: start;
+  }
+
+  .hero-aside{
+    border-left: 1px solid var(--border);
+    padding-left: 34px;
+    padding-top: 6px; /* aligns visually with headline */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .hero-photo{
+    width: 240px;
+    height: 240px;
   }
 }
 
-.hero-photo{
-  width: 220px;
-  height: 220px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  object-fit: cover;
-  object-position: center 20%;
-  flex: 0 0 auto;
-  background: #fff;
+/* Mobile layout */
+@media (max-width: 919px){
+  .hero{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    text-align: center;
+    padding: 18px;
+  }
+
+  .hero-aside{
+    order: -1;
+    border-left: none;
+    padding-left: 0;
+    padding-top: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero-photo{
+    width: 180px;
+    height: 180px;
+  }
+
+  .links-row{ justify-content: center; }
 }
 
 .hero-content{
-  flex: 1;
   min-width: 0;
 }
 
 .hero-content h1{
   margin: 0;
-  font-size: 2.35rem;
+  font-size: 2.45rem;
   line-height: 1.12;
   letter-spacing: -0.2px;
 }
@@ -155,7 +183,7 @@ nav a.active, nav a:hover{
 .sub a{ text-decoration: none; }
 .sub a:hover{ text-decoration: underline; }
 
-/* Bio: widen a bit so the page uses width better */
+/* Bio */
 .bio{
   max-width: 92ch;
   color: var(--muted);
@@ -165,7 +193,17 @@ nav a.active, nav a:hover{
 .bio p{ margin: 10px 0; }
 .bio em{ font-family: var(--serif); font-style: italic; font-size: 1.06em; }
 
-/* ========== Links row ========== */
+/* Photo */
+.hero-photo{
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  object-fit: cover;
+  object-position: center 20%;
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(0,0,0,.06);
+}
+
+/* Links row */
 .links-row{
   display:flex;
   gap: 10px;
@@ -190,13 +228,13 @@ nav a.active, nav a:hover{
   border-color: rgba(0,0,0,.18);
 }
 
-/* ========== Section title ========== */
+/* Section title */
 .section-title{
   margin: 22px 0 12px;
   font-size: 1.35rem;
 }
 
-/* ========== News / Pub items ========== */
+/* News / Pub items */
 .pub-item{
   background: var(--surface);
   border: 1px solid var(--border);
@@ -269,28 +307,8 @@ nav a.active, nav a:hover{
 }
 .press-links a:hover{ background: rgba(0,0,0,.04); }
 
-/* ========== Research page (kept from your file) ========== */
-.pub-item .meta{
-  font-size: .88rem;
-  color: var(--muted2);
-  margin-bottom: 6px;
-}
-.pub-item .meta em{
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 1.06em;
-}
-.pub-item h3{
-  margin: 0 0 6px;
-  font-size: 1rem;
-  line-height: 1.35;
-}
-.pub-item h3 a{ text-decoration: none; }
-.pub-item h3 a:hover{ text-decoration: underline; }
-
-/* ========== Lists (Teaching, Expertises) ========== */
+/* Lists (Teaching, Expertises) */
 .content-list{ list-style: none; padding: 0; }
-
 .content-list li{
   background: var(--surface);
   border: 1px solid var(--border);
@@ -300,7 +318,7 @@ nav a.active, nav a:hover{
   color: var(--muted);
 }
 
-/* ========== Contact ========== */
+/* Contact */
 .contact-info{
   background: var(--surface);
   border: 1px solid var(--border);
@@ -311,7 +329,7 @@ nav a.active, nav a:hover{
 }
 .contact-info strong{ color: var(--text); }
 
-/* ========== Footer ========== */
+/* Footer */
 .site-footer{
   border-top: 1px solid var(--border);
   margin-top: 0;
@@ -322,19 +340,9 @@ nav a.active, nav a:hover{
   font-size: .85rem;
 }
 
-/* ========== Mobile ========== */
+/* Mobile nav */
 @media (max-width: 700px){
   :root{ --pad: 18px; }
-
-  .hero{
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 18px;
-    gap: 16px;
-  }
-  .hero-photo{ width: 180px; height: 180px; }
-  .links-row{ justify-content: center; }
 
   .nav-toggle{ display:inline-flex; }
   nav{
