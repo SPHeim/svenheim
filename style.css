@@ -2,7 +2,8 @@
    Sven Heim – unified academic design (section titles stable)
    - Keep H2 section titles as-is
    - Make item/paper titles smaller (Research/Expertises/Teaching)
-   - Teaching: institution label + year-right grid if present
+   - Teaching: institution label + year-right grid
+   - Teaching: NO separators between courses
    ========================================================= */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -163,7 +164,7 @@ main{
   font-size: .9rem;
   color: var(--text2);
   line-height: 1.72;
-  max-width: 78ch; /* improves readability, helps “Teaching looks bad” too */
+  max-width: 78ch;
 }
 .bio p{ margin-bottom: .7rem; }
 .bio em{
@@ -246,13 +247,13 @@ main{
 .pub-item{
   padding: 1.0rem 0;
   border-bottom: 1px solid var(--line-strong);
-  max-width: 92ch;              /* key: prevents teaching/research lines looking messy */
+  max-width: 92ch;
 }
 .pub-item:last-child{ border-bottom: none; }
 
-/* KEY CHANGE: make paper/course titles SMALLER */
+/* Item/paper titles smaller than section title */
 .pub-item h3{
-  font-size: .88rem;            /* was ~.95: now smaller than section title */
+  font-size: .88rem;
   font-weight: 600;
   line-height: 1.35;
   margin: 0 0 .25rem;
@@ -293,9 +294,7 @@ main{
 }
 .press-links a{ white-space: nowrap; }
 
-/* ---------------- Expertises legacy <ul class="content-list"> support ----------------
-   If you keep expertises.html as UL, it will still look consistent.
-*/
+/* ---------------- Expertises legacy <ul class="content-list"> support ---------------- */
 .content-list{
   list-style: none;
   padding-left: 0;
@@ -313,7 +312,7 @@ main{
 .content-list a{ font-weight: 600; color: var(--link); }
 .content-list a:hover{ color: var(--link-h); }
 
-/* ---------------- Teaching: years right aligned (only if you use item-head markup) ---------------- */
+/* ---------------- Teaching: years right aligned (only if item-head markup exists) ---------------- */
 .item-head{
   display: grid;
   grid-template-columns: 1fr auto;
@@ -327,6 +326,16 @@ main{
   white-space: nowrap;
   text-align: right;
 }
+
+/* Teaching: remove separators between courses (ONLY on Teaching page) */
+.page-teaching .pub-item{
+  border-bottom: none;
+  padding: .55rem 0;
+}
+.page-teaching .pub-item:last-child{ border-bottom: none; }
+
+/* Optional: slightly tighter paragraph spacing on teaching */
+.page-teaching .pub-item p{ margin-top: .15rem; }
 
 @media (max-width: 700px){
   .item-head{ grid-template-columns: 1fr; gap: .25rem; }
