@@ -1,6 +1,5 @@
 /* =========================================================
    Sven Heim – unified academic design
-   - Serif italics for journals, compensated size to match DM Sans visually
    ========================================================= */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -25,9 +24,10 @@
   --w: 1080px;
   --pad: 2.5rem;
 
-  /* ===== key tuning knobs ===== */
-  --em-scale: 1.06;   /* global serif italic compensation */
-  --em-scale-meta: 1.04; /* smaller compensation inside .meta */
+  /* Photo tuning:
+     smaller % = focus higher (less top crop), larger % = focus lower */
+  --photo-focus-y: 8%;
+  --photo-focus-y-mobile: 10%;
 }
 
 html{ font-size: 16px; scroll-behavior: smooth; }
@@ -48,22 +48,12 @@ a:hover{
 }
 img{ max-width: 100%; height: auto; display: block; }
 
-/* =========================================================
-   Serif italics, but visually matched in size
-   ========================================================= */
+/* Italics consistent (no serif swap) */
 em{
-  font-family: var(--serif);
+  font-family: inherit;
   font-style: italic;
-  font-size: calc(1em * var(--em-scale));
+  font-size: inherit;
   line-height: inherit;
-  /* helps reduce the “caps feel huge” effect a bit */
-  letter-spacing: -0.01em;
-}
-
-/* In meta lines (research), keep it slightly more restrained */
-.meta em{
-  font-size: calc(1em * var(--em-scale-meta));
-  letter-spacing: -0.01em;
 }
 
 /* ---------------- Header ---------------- */
@@ -155,15 +145,21 @@ main{
 
 .hero-content{ flex: 1; min-width: 0; }
 
+/* PHOTO: less top crop via object-position Y */
 .hero-photo{
   width: 250px;
   min-width: 250px;
   height: 250px;
   border-radius: 50%;
   object-fit: cover;
-  object-position: center 20%;
+  object-position: center var(--photo-focus-y);
   order: 2;
   margin-top: 0;
+
+  /* cleaner separation from text */
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 24px rgba(0,0,0,.06);
 }
 
 .hero-content h1{
@@ -226,6 +222,7 @@ main{
     min-width: 180px;
     height: 180px;
     order: 0;
+    object-position: center var(--photo-focus-y-mobile);
   }
 }
 
