@@ -24,14 +24,8 @@ body{
 a{ color: inherit; text-decoration: underline; text-decoration-color: rgba(0,0,0,.22); text-underline-offset: 2px; }
 a:hover{ text-decoration-color: rgba(0,0,0,.55); }
 
-.wrap{
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 0 18px 40px;
-}
-
 /* ========== Header ========== */
-.site-header{
+header{
   position: sticky;
   top: 0;
   background: rgba(247,247,247,.92);
@@ -94,6 +88,13 @@ nav a.active, nav a:hover{
   opacity: .85;
 }
 
+/* ========== Main ========== */
+main{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 18px 40px;
+}
+
 /* ========== Hero ========== */
 .hero{
   background: var(--surface);
@@ -115,6 +116,11 @@ nav a.active, nav a:hover{
   object-position: center 20%;
   flex: 0 0 auto;
   background: #fff;
+}
+
+.hero-content{
+  flex: 1;
+  min-width: 0;
 }
 
 .hero-content h1{
@@ -205,7 +211,6 @@ nav a.active, nav a:hover{
   border-radius: var(--radius);
   padding: 16px 18px 14px;
   margin: 12px 0;
-  max-width: 78ch;
 }
 
 .pub-item p{
@@ -226,36 +231,15 @@ nav a.active, nav a:hover{
   color: var(--text);
 }
 
-.pub-meta{
-  display:flex;
-  align-items:center;
-  gap: 10px;
-  margin-bottom: 6px;
-}
-
-.pub-date{
-  font-size: .92rem;
-  color: var(--muted2);
-}
-
-.pub-tag{
-  font-size: .86rem;
-  color: rgba(17,17,17,.76);
-  border: 1px solid var(--border);
-  background: rgba(0,0,0,.02);
-  padding: 4px 10px;
-  border-radius: 999px;
-}
-
 /* Press links as chips */
-.press-links{
+p.press-links{
   display:flex;
   flex-wrap: wrap;
   gap: 8px;
   align-items: center;
 }
 
-.press-links a{
+p.press-links a{
   text-decoration: none;
   border: 1px solid var(--border);
   border-radius: 999px;
@@ -265,7 +249,7 @@ nav a.active, nav a:hover{
   color: rgba(17,17,17,.82);
   transition: background .15s;
 }
-.press-links a:hover{
+p.press-links a:hover{
   background: rgba(0,0,0,.04);
 }
 
@@ -288,12 +272,8 @@ nav a.active, nav a:hover{
   line-height: 1.35;
 }
 
-.pub-item h3 a{
-  text-decoration: none;
-}
-.pub-item h3 a:hover{
-  text-decoration: underline;
-}
+.pub-item h3 a{ text-decoration: none; }
+.pub-item h3 a:hover{ text-decoration: underline; }
 
 /* ========== Lists (Teaching, Expertises) ========== */
 .content-list{ list-style: none; padding: 0; }
@@ -350,6 +330,5 @@ footer{
   nav.open{ display:flex; }
   nav a{ width: 100%; }
 
-  .pub-item{ max-width: 100%; }
-  .press-links{ justify-content: center; }
+  p.press-links{ justify-content: flex-start; }
 }
