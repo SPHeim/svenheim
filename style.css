@@ -5,9 +5,14 @@
   --muted:rgba(17,17,17,.72);
   --muted2:rgba(17,17,17,.55);
   --border:#e6e6e6;
+
+  /* FIX: needs unit + give more room on desktop */
+  --max: 1200px;
+  --pad: 24px;
+
   --radius:14px;
   --radius-sm:10px;
-  --max: 1060;
+
   --serif: "Crimson Pro", Georgia, serif;
   --sans: "DM Sans", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
 }
@@ -21,13 +26,19 @@ body{
   line-height: 1.6;
 }
 
-a{ color: inherit; text-decoration: underline; text-decoration-color: rgba(0,0,0,.22); text-underline-offset: 2px; }
+/* Links: ruhig, aber klar */
+a{
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(0,0,0,.22);
+  text-underline-offset: 2px;
+}
 a:hover{ text-decoration-color: rgba(0,0,0,.55); }
 
 .wrap{
   max-width: var(--max);
   margin: 0 auto;
-  padding: 0 18px 40px;
+  padding: 0 var(--pad) 44px;
 }
 
 /* ========== Header ========== */
@@ -44,7 +55,7 @@ a:hover{ text-decoration-color: rgba(0,0,0,.55); }
 .header-inner{
   max-width: var(--max);
   margin: 0 auto;
-  padding: 14px 18px;
+  padding: 14px var(--pad);
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -99,16 +110,24 @@ nav a.active, nav a:hover{
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 22px;
+  padding: 24px;
   margin: 22px 0 16px;
+
   display:flex;
-  gap: 28px;
-  align-items:center;
+  gap: 32px;
+  align-items:flex-start; /* important for nice top alignment */
+}
+
+/* Desktop: put photo RIGHT to avoid “left squeezed, right empty” */
+@media (min-width: 920px){
+  .hero{
+    flex-direction: row-reverse;
+  }
 }
 
 .hero-photo{
-  width: 240px;
-  height: 240px;
+  width: 220px;
+  height: 220px;
   border-radius: 999px;
   border: 1px solid var(--border);
   object-fit: cover;
@@ -124,7 +143,7 @@ nav a.active, nav a:hover{
 
 .hero-content h1{
   margin: 0;
-  font-size: 2.25rem;
+  font-size: 2.35rem;
   line-height: 1.12;
   letter-spacing: -0.2px;
 }
@@ -136,9 +155,9 @@ nav a.active, nav a:hover{
 .sub a{ text-decoration: none; }
 .sub a:hover{ text-decoration: underline; }
 
-/* Bio */
+/* Bio: widen a bit so the page uses width better */
 .bio{
-  max-width: 75ch;
+  max-width: 92ch;
   color: var(--muted);
   font-family: var(--serif);
   font-size: 1.08rem;
@@ -146,7 +165,7 @@ nav a.active, nav a:hover{
 .bio p{ margin: 10px 0; }
 .bio em{ font-family: var(--serif); font-style: italic; font-size: 1.06em; }
 
-/* Links row */
+/* ========== Links row ========== */
 .links-row{
   display:flex;
   gap: 10px;
@@ -159,42 +178,16 @@ nav a.active, nav a:hover{
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   padding: 8px 10px;
-  font-size: .9rem;
+  font-size: .92rem;
   background: var(--surface);
   color: rgba(17,17,17,.86);
   transition: background .15s;
 }
-
-.links-row a:hover{
-  background: rgba(0,0,0,.03);
-}
+.links-row a:hover{ background: rgba(0,0,0,.03); }
 
 .links-row a.cv-link{
   font-weight: 600;
   border-color: rgba(0,0,0,.18);
-}
-
-/* ========== Interests Box ========== */
-.info-row{
-  margin: 0 0 18px;
-}
-
-.info-col{
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 14px 16px 12px;
-}
-
-.info-col h3{
-  margin: 0 0 10px;
-  font-size: 1.05rem;
-}
-
-.info-col ul{
-  margin: 0;
-  padding-left: 20px;
-  color: var(--muted);
 }
 
 /* ========== Section title ========== */
@@ -208,7 +201,7 @@ nav a.active, nav a:hover{
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 16px 18px 14px;
+  padding: 18px 22px 16px;
   margin: 12px 0;
 }
 
@@ -274,29 +267,24 @@ nav a.active, nav a:hover{
   color: rgba(17,17,17,.82);
   transition: background .15s;
 }
-.press-links a:hover{
-  background: rgba(0,0,0,.04);
-}
+.press-links a:hover{ background: rgba(0,0,0,.04); }
 
-/* ========== Research page ========== */
+/* ========== Research page (kept from your file) ========== */
 .pub-item .meta{
   font-size: .88rem;
   color: var(--muted2);
   margin-bottom: 6px;
 }
-
 .pub-item .meta em{
   font-family: var(--serif);
   font-style: italic;
   font-size: 1.06em;
 }
-
 .pub-item h3{
   margin: 0 0 6px;
   font-size: 1rem;
   line-height: 1.35;
 }
-
 .pub-item h3 a{ text-decoration: none; }
 .pub-item h3 a:hover{ text-decoration: underline; }
 
@@ -321,7 +309,6 @@ nav a.active, nav a:hover{
   line-height: 1.8;
   color: var(--muted);
 }
-
 .contact-info strong{ color: var(--text); }
 
 /* ========== Footer ========== */
@@ -329,19 +316,22 @@ nav a.active, nav a:hover{
   border-top: 1px solid var(--border);
   margin-top: 0;
 }
-
 .footer-inner{
-  padding: 18px 18px;
+  padding: 18px var(--pad);
   color: var(--muted2);
   font-size: .85rem;
 }
 
 /* ========== Mobile ========== */
 @media (max-width: 700px){
+  :root{ --pad: 18px; }
+
   .hero{
     flex-direction: column;
     align-items: center;
     text-align: center;
+    padding: 18px;
+    gap: 16px;
   }
   .hero-photo{ width: 180px; height: 180px; }
   .links-row{ justify-content: center; }
