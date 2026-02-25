@@ -22,6 +22,113 @@
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css?v=20260224-200">
+
+  <style>
+    /* Modern Seminar Cards */
+    .seminar-list {
+        list-style: none !important;
+        padding: 0 !important;
+        margin: 0 0 40px 0 !important;
+        display: grid;
+        gap: 12px;
+    }
+
+    .seminar-list li, 
+    .seminar-list .seminar-item {
+        list-style: none !important;
+        list-style-type: none !important;
+        background-image: none !important;
+    }
+    
+    .seminar-list li::before, 
+    .seminar-list li::after, 
+    .seminar-list li::marker {
+        content: none !important;
+        display: none !important;
+        background: none !important;
+    }
+
+    .seminar-item {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        background: #ffffff;
+        padding: 16px 20px;
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+        transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .seminar-item:hover {
+        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.08);
+        border-color: #cbd5e1;
+        transform: translateY(-2px);
+    }
+
+    .date-badge {
+        background: #f8fafc;
+        color: #0369a1;
+        padding: 8px 14px;
+        border-radius: 8px;
+        border: 1px solid #e0f2fe;
+        font-weight: 700;
+        font-size: 0.9em;
+        text-align: center;
+        min-width: 100px;
+        flex-shrink: 0;
+    }
+
+    .seminar-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .seminar-speaker {
+        font-size: 1.05em;
+        font-weight: 600;
+        color: #0f172a;
+    }
+
+    .seminar-meta {
+        font-size: 0.85em;
+        color: #64748b;
+        margin-top: 4px;
+    }
+
+    .archive-link {
+        display: inline-block;
+        margin-top: 10px;
+        font-weight: 600;
+        color: #0ea5e9;
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+    
+    .archive-link:hover {
+        color: #0284c7;
+        text-decoration: underline;
+    }
+
+    .intro-text a {
+        color: #0ea5e9;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .intro-text a:hover {
+        color: #0284c7;
+        text-decoration: underline;
+    }
+
+    @media (max-width: 500px) {
+        .seminar-item {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+        }
+    }
+  </style>
 </head>
 
 <body>
@@ -34,127 +141,116 @@
       <span></span><span></span><span></span>
     </button>
 
-    <nav>
+   <nav>
       <a href="index.html">Home</a>
       <a href="research.html">Research</a>
       <a href="teaching.html">Teaching</a>
-      <a href="seminars.html" class="active">Seminars</a>
-      <a href="anr-mincom.html">ANR MINCOM</a>
+      <a href="seminars.html">Seminars</a>
       <a href="expertises.html">Expertise</a>
+      <a href="anr-mincom.html">ANR MINCOM</a>
       <a href="contact.html">Contact</a>
     </nav>
   </div>
 </header>
 
-<main class="page-teaching">
+<main>
 
   <h2 class="section-title">Seminars</h2>
 
-  <div class="pub-item" style="border-bottom: none;">
-    <p>
-      I organize the <strong>CERNA Research Seminar</strong> at Mines Paris – PSL.
-    </p>
-    <p>
-      If you wish to be included in the mailing list to receive invitations and updates, please contact me at <a href="mailto:sven.heim@minesparis.psl.eu">sven.heim@minesparis.psl.eu</a>.
-    </p>
-    <p>
-      To view the full list of past seminars and speakers spanning previous academic years, please visit the <a href="https://www.cerna.minesparis.psl.eu/Research/seminar/CERNA-s-Seminars/" target="_blank" rel="noopener noreferrer">official CERNA department page</a>.
-    </p>
+  <div class="intro-text" style="margin-bottom: 40px;">
+    <p style="font-size: 1.05em; margin-bottom: 10px;">I organize the <strong>CERNA Research Seminar</strong> at Mines Paris – PSL.</p>
+    <p style="color: #475569;">If you wish to be included in the mailing list to receive invitations and updates, please contact me at <a href="mailto:sven.heim@minesparis.psl.eu">sven.heim@minesparis.psl.eu</a>.</p>
   </div>
 
-  <h3 class="subsection-title" style="margin-top: 2rem;">Current Season (2025/2026)</h3>
+  <h3 style="margin-bottom: 20px; color: #0f172a;">Current Season (2025/2026)</h3>
   
-  <div class="pub-item">
-    <div class="item-head">
-      <h3 class="item-title">Philippe Chone (CREST)</h3>
-      <div class="item-year">03 Jun 2026</div>
-    </div>
-    <div class="meta">Wednesday, 16h00 &bull; Research Seminar</div>
+  <ul class="seminar-list">
+    <li class="seminar-item">
+        <div class="date-badge">03 Jun 2026</div>
+        <div class="seminar-info">
+            <span class="seminar-speaker">Philippe Chone (CREST)</span>
+            <span class="seminar-meta">Wednesday, 16h00 &bull; Research Seminar</span>
+        </div>
+    </li>
+    <li class="seminar-item">
+        <div class="date-badge">06 May 2026</div>
+        <div class="seminar-info">
+            <span class="seminar-speaker">Ozge Demirci (Imperial)</span>
+            <span class="seminar-meta">Wednesday, 16h00 &bull; Research Seminar</span>
+        </div>
+    </li>
+    <li class="seminar-item">
+        <div class="date-badge">15 Apr 2026</div>
+        <div class="seminar-info">
+            <span class="seminar-speaker">Simon Reif (ZEW)</span>
+            <span class="seminar-meta">Wednesday, 16h00 &bull; Research Seminar</span>
+        </div>
+    </li>
+    <li class="seminar-item">
+        <div class="date-badge">18 Mar 2026</div>
+        <div class="seminar-info">
+            <span class="seminar-speaker">Antoine Dechezlepretre (OECD)</span>
+            <span class="seminar-meta">Wednesday, 16h00 &bull; Research Seminar</span>
+        </div>
+    </li>
+    <li class="seminar-item">
+        <div class="date-badge">18 Feb 2026</div>
+        <div class="seminar-info">
+            <span class="seminar-speaker">Hadi El Caiou (Toronto)</span>
+            <span class="seminar-meta">Wednesday, 16h00 &bull; Research Seminar</span>
+        </div>
+    </li>
+    <li class="seminar-item">
+        <div class="date-badge">21 Jan 2026</div>
+        <div class="seminar-info">
+            <span class="seminar-speaker">Christos Genakos (Cambridge)</span>
+            <span class="seminar-meta">Wednesday, 16h00 &bull; Research Seminar</span>
+        </div>
+    </li>
+    <li class="seminar-item">
+        <div class="date-badge">10 Dec 2025</div>
+        <div class="seminar-info">
+            <span class="seminar-speaker">Helene Ollivier (PSE)</span>
+            <span class="seminar-meta">Wednesday, 16h00 &bull; Research Seminar</span>
+        </div>
+    </li>
+    <li class="seminar-item">
+        <div class="date-badge">19 Nov 2025</div>
+        <div class="seminar-info">
+            <span class="seminar-speaker">Tomaso Duso (DIW)</span>
+            <span class="seminar-meta">Wednesday, 16h00 &bull; Research Seminar</span>
+        </div>
+    </li>
+    <li class="seminar-item">
+        <div class="date-badge">13 Nov 2025</div>
+        <div class="seminar-info">
+            <span class="seminar-speaker">Joel Stiebale (DICE)</span>
+            <span class="seminar-meta">Thursday, 16h00 &bull; Research Seminar</span>
+        </div>
+    </li>
+    <li class="seminar-item">
+        <div class="date-badge">29 Oct 2025</div>
+        <div class="seminar-info">
+            <span class="seminar-speaker">Annika Herr (Hannover)</span>
+            <span class="seminar-meta">Wednesday, 16h00 &bull; Research Seminar</span>
+        </div>
+    </li>
+    <li class="seminar-item">
+        <div class="date-badge">15 Oct 2025</div>
+        <div class="seminar-info">
+            <span class="seminar-speaker">Nick de Roos (Liverpool)</span>
+            <span class="seminar-meta">Wednesday, 16h00 &bull; Research Seminar</span>
+        </div>
+    </li>
+  </ul>
+
+  <div class="pub-item" style="border-top: 1px solid #e2e8f0; padding-top: 20px;">
+    <p>To view the full list of past seminars and speakers spanning previous academic years, please visit the official department page.</p>
+    <a href="https://www.cerna.minesparis.psl.eu/Research/seminar/CERNA-s-Seminars/" target="_blank" rel="noopener noreferrer" class="archive-link">View Full Seminar Archive at CERNA &rarr;</a>
   </div>
 
-  <div class="pub-item">
-    <div class="item-head">
-      <h3 class="item-title">Ozge Demirci (Imperial)</h3>
-      <div class="item-year">06 May 2026</div>
-    </div>
-    <div class="meta">Wednesday, 16h00 &bull; Research Seminar</div>
-  </div>
-
-  <div class="pub-item">
-    <div class="item-head">
-      <h3 class="item-title">Simon Reif (ZEW)</h3>
-      <div class="item-year">15 Apr 2026</div>
-    </div>
-    <div class="meta">Wednesday, 16h00 &bull; Research Seminar</div>
-  </div>
-
-  <div class="pub-item">
-    <div class="item-head">
-      <h3 class="item-title">Antoine Dechezlepretre (OECD)</h3>
-      <div class="item-year">18 Mar 2026</div>
-    </div>
-    <div class="meta">Wednesday, 16h00 &bull; Research Seminar</div>
-  </div>
-
-  <div class="pub-item">
-    <div class="item-head">
-      <h3 class="item-title">Hadi El Caiou (Toronto)</h3>
-      <div class="item-year">18 Feb 2026</div>
-    </div>
-    <div class="meta">Wednesday, 16h00 &bull; Research Seminar</div>
-  </div>
-
-  <div class="pub-item">
-    <div class="item-head">
-      <h3 class="item-title">Christos Genakos (Cambridge)</h3>
-      <div class="item-year">21 Jan 2026</div>
-    </div>
-    <div class="meta">Wednesday, 16h00 &bull; Research Seminar</div>
-  </div>
-
-  <div class="pub-item">
-    <div class="item-head">
-      <h3 class="item-title">Helene Ollivier (PSE)</h3>
-      <div class="item-year">10 Dec 2025</div>
-    </div>
-    <div class="meta">Wednesday, 16h00 &bull; Research Seminar</div>
-  </div>
-
-  <div class="pub-item">
-    <div class="item-head">
-      <h3 class="item-title">Tomaso Duso (DIW)</h3>
-      <div class="item-year">19 Nov 2025</div>
-    </div>
-    <div class="meta">Wednesday, 16h00 &bull; Research Seminar</div>
-  </div>
-
-  <div class="pub-item">
-    <div class="item-head">
-      <h3 class="item-title">Joel Stiebale (DICE)</h3>
-      <div class="item-year">13 Nov 2025</div>
-    </div>
-    <div class="meta">Thursday, 16h00 &bull; Research Seminar</div>
-  </div>
-
-  <div class="pub-item">
-    <div class="item-head">
-      <h3 class="item-title">Annika Herr (Hannover)</h3>
-      <div class="item-year">29 Oct 2025</div>
-    </div>
-    <div class="meta">Wednesday, 16h00 &bull; Research Seminar</div>
-  </div>
-
-  <div class="pub-item">
-    <div class="item-head">
-      <h3 class="item-title">Nick de Roos (Liverpool)</h3>
-      <div class="item-year">15 Oct 2025</div>
-    </div>
-    <div class="meta">Wednesday, 16h00 &bull; Research Seminar</div>
-  </div>
-
-  <h2 class="section-title">Past Roles</h2>
-  <div class="pub-item" style="border-bottom: none;">
-    <p>I also co-organized the Mannheim Energy Conference from 2012 to 2017 and the MaCCI Conference 2013.</p>
+  <div class="pub-item" style="margin-top: 40px; color: #64748b; font-size: 0.95em;">
+    <p><em>Past Roles:</em> I also co-organized the Mannheim Energy Conference from 2012 to 2017 and the MaCCI Conference 2013.</p>
   </div>
 
 </main>
