@@ -9,7 +9,6 @@
 
   <link rel="canonical" href="https://www.sven-heim.com/seminars.html">
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Seminars – Sven Heim" />
   <meta property="og:description" content="CERNA Research Seminar, CERNA Lunch Seminar, and Atelier Doctoral at CERNA." />
@@ -22,8 +21,116 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- keep your cache-bust pattern -->
   <link rel="stylesheet" href="style.css?v=20260224-200">
+
+  <style>
+    /* Organizer Callout Box */
+    .organizer-card {
+        background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        border: 1px solid #bae6fd;
+        padding: 20px 24px;
+        border-radius: 12px;
+        margin-bottom: 40px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+    .organizer-card p { margin: 0 0 10px 0; font-size: 15.5px; color: #0369a1; }
+    .organizer-card p:last-child { margin-bottom: 0; }
+    .organizer-card a { color: #0284c7; font-weight: 600; text-decoration: none; }
+    .organizer-card a:hover { text-decoration: underline; color: #0369a1; }
+
+    /* Modern Seminar Cards */
+    .seminar-list {
+        list-style: none !important;
+        padding: 0 !important;
+        margin: 0 0 40px 0 !important;
+        display: grid;
+        gap: 12px;
+    }
+
+    .seminar-list li, 
+    .seminar-list .seminar-item {
+        list-style: none !important;
+        list-style-type: none !important;
+        background-image: none !important;
+    }
+    
+    .seminar-list li::before, 
+    .seminar-list li::after, 
+    .seminar-list li::marker {
+        content: none !important;
+        display: none !important;
+        background: none !important;
+    }
+
+    .seminar-item {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        background: #ffffff;
+        padding: 16px 20px;
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+        transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .seminar-item:hover {
+        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.08);
+        border-color: #cbd5e1;
+        transform: translateY(-2px);
+    }
+
+    .date-badge {
+        background: #f8fafc;
+        color: #0369a1;
+        padding: 8px 14px;
+        border-radius: 8px;
+        border: 1px solid #e0f2fe;
+        font-weight: 700;
+        font-size: 0.9em;
+        text-align: center;
+        min-width: 100px;
+        flex-shrink: 0;
+    }
+
+    .seminar-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .seminar-speaker {
+        font-size: 1.05em;
+        font-weight: 600;
+        color: #0f172a;
+    }
+
+    .seminar-meta {
+        font-size: 0.85em;
+        color: #64748b;
+        margin-top: 4px;
+    }
+
+    .archive-link {
+        display: inline-block;
+        margin-top: 10px;
+        font-weight: 600;
+        color: #0ea5e9;
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+    .archive-link:hover {
+        color: #0284c7;
+        text-decoration: underline;
+    }
+
+    @media (max-width: 500px) {
+        .seminar-item {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+        }
+    }
+  </style>
 </head>
 
 <body>
@@ -51,26 +158,65 @@
 
   <h2 class="section-title">Seminars</h2>
 
-  <div class="pub-item">
-    <p>
-      I organize the CERNA Research Seminar at CERNA.
-    </p>
-
-    <p>
-      Upcoming dates for the seminars can be found
-      <a href="https://www.cerna.minesparis.psl.eu/Research/seminar/CERNA-s-Seminars/" target="_blank" rel="noopener noreferrer">here</a>.
-    </p>
-
-    <p>
-      If you wish to be included in the mailing list, please contact me at
-      <a href="mailto:sven.heim@minesparis.psl.eu">sven.heim@minesparis.psl.eu</a>.
-    </p>
+  <div class="organizer-card">
+    <p>I organize the <strong>CERNA Research Seminar</strong> at Mines Paris – PSL.</p>
+    <p>If you wish to be included in the mailing list to receive invitations and updates, please contact me at <a href="mailto:sven.heim@minesparis.psl.eu">sven.heim@minesparis.psl.eu</a>.</p>
   </div>
 
-  <div class="pub-item">
-    <p>
-      I was also co-organizing the Mannheim Energy Conference from 2012 to 2017 and the MaCCI Conference 2013.
-    </p>
+  <h3 style="margin-bottom: 20px; color: #0f172a;">Current & Upcoming Speakers</h3>
+  
+  <ul class="seminar-list">
+    <li class="seminar-item">
+        <div class="date-badge">19 Mar 2025</div>
+        <div class="seminar-info">
+            <span class="seminar-speaker">Louis Pape (Telecom Paris)</span>
+            <span class="seminar-meta">Wednesday, 16h00 &bull; Research Seminar</span>
+        </div>
+    </li>
+    <li class="seminar-item">
+        <div class="date-badge">15 Apr 2025</div>
+        <div class="seminar-info">
+            <span class="seminar-speaker">Nicolas Schutz (Mannheim)</span>
+            <span class="seminar-meta">Tuesday, 16h00 &bull; Research Seminar</span>
+        </div>
+    </li>
+    <li class="seminar-item">
+        <div class="date-badge">16 Apr 2025</div>
+        <div class="seminar-info">
+            <span class="seminar-speaker">Volker Nocke (Mannheim)</span>
+            <span class="seminar-meta">Wednesday, 16h00 &bull; Research Seminar</span>
+        </div>
+    </li>
+    <li class="seminar-item">
+        <div class="date-badge">23 Apr 2025</div>
+        <div class="seminar-info">
+            <span class="seminar-speaker">Clement Malgouyres (Sciences Po)</span>
+            <span class="seminar-meta">Wednesday, 16h00 &bull; Research Seminar</span>
+        </div>
+    </li>
+    <li class="seminar-item">
+        <div class="date-badge">27 May 2025</div>
+        <div class="seminar-info">
+            <span class="seminar-speaker">Carlos Serrano (HEC Paris)</span>
+            <span class="seminar-meta">Tuesday, 16h00 &bull; Research Seminar</span>
+        </div>
+    </li>
+    <li class="seminar-item">
+        <div class="date-badge">11 Jun 2025</div>
+        <div class="seminar-info">
+            <span class="seminar-speaker">Leonard Treuren (KU Leuven)</span>
+            <span class="seminar-meta">Wednesday, 16h00 &bull; Research Seminar</span>
+        </div>
+    </li>
+  </ul>
+
+  <div class="pub-item" style="border-top: 1px solid #e2e8f0; padding-top: 20px;">
+    <p>To view the full list of past seminars and speakers spanning previous academic years, please visit the official department page.</p>
+    <a href="https://www.cerna.minesparis.psl.eu/Research/seminar/CERNA-s-Seminars/" target="_blank" rel="noopener noreferrer" class="archive-link">View Full Seminar Archive at CERNA &rarr;</a>
+  </div>
+
+  <div class="pub-item" style="margin-top: 40px; color: #64748b; font-size: 0.95em;">
+    <p><em>Past Roles:</em> I also co-organized the Mannheim Energy Conference from 2012 to 2017 and the MaCCI Conference 2013.</p>
   </div>
 
 </main>
