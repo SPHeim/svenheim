@@ -24,20 +24,6 @@
   <link rel="stylesheet" href="style.css?v=20260224-200">
 
   <style>
-    /* Organizer Callout Box */
-    .organizer-card {
-        background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-        border: 1px solid #bae6fd;
-        padding: 20px 24px;
-        border-radius: 12px;
-        margin-bottom: 40px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-    }
-    .organizer-card p { margin: 0 0 10px 0; font-size: 15.5px; color: #0369a1; }
-    .organizer-card p:last-child { margin-bottom: 0; }
-    .organizer-card a { color: #0284c7; font-weight: 600; text-decoration: none; }
-    .organizer-card a:hover { text-decoration: underline; color: #0369a1; }
-
     /* Modern Seminar Cards */
     .seminar-list {
         list-style: none !important;
@@ -118,7 +104,19 @@
         text-decoration: none;
         transition: color 0.2s ease;
     }
+    
     .archive-link:hover {
+        color: #0284c7;
+        text-decoration: underline;
+    }
+
+    .intro-text a {
+        color: #0ea5e9;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .intro-text a:hover {
         color: #0284c7;
         text-decoration: underline;
     }
@@ -158,53 +156,88 @@
 
   <h2 class="section-title">Seminars</h2>
 
-  <div class="organizer-card">
-    <p>I organize the <strong>CERNA Research Seminar</strong> at Mines Paris – PSL.</p>
-    <p>If you wish to be included in the mailing list to receive invitations and updates, please contact me at <a href="mailto:sven.heim@minesparis.psl.eu">sven.heim@minesparis.psl.eu</a>.</p>
+  <div class="intro-text" style="margin-bottom: 40px;">
+    <p style="font-size: 1.05em; margin-bottom: 10px;">I organize the <strong>CERNA Research Seminar</strong> at Mines Paris – PSL.</p>
+    <p style="color: #475569;">If you wish to be included in the mailing list to receive invitations and updates, please contact me at <a href="mailto:sven.heim@minesparis.psl.eu">sven.heim@minesparis.psl.eu</a>.</p>
   </div>
 
-  <h3 style="margin-bottom: 20px; color: #0f172a;">Current & Upcoming Speakers</h3>
+  <h3 style="margin-bottom: 20px; color: #0f172a;">Current Season (2025/2026)</h3>
   
   <ul class="seminar-list">
     <li class="seminar-item">
-        <div class="date-badge">19 Mar 2025</div>
+        <div class="date-badge">03 Jun 2026</div>
         <div class="seminar-info">
-            <span class="seminar-speaker">Louis Pape (Telecom Paris)</span>
+            <span class="seminar-speaker">Philippe Chone (CREST)</span>
             <span class="seminar-meta">Wednesday, 16h00 &bull; Research Seminar</span>
         </div>
     </li>
     <li class="seminar-item">
-        <div class="date-badge">15 Apr 2025</div>
+        <div class="date-badge">06 May 2026</div>
         <div class="seminar-info">
-            <span class="seminar-speaker">Nicolas Schutz (Mannheim)</span>
-            <span class="seminar-meta">Tuesday, 16h00 &bull; Research Seminar</span>
-        </div>
-    </li>
-    <li class="seminar-item">
-        <div class="date-badge">16 Apr 2025</div>
-        <div class="seminar-info">
-            <span class="seminar-speaker">Volker Nocke (Mannheim)</span>
+            <span class="seminar-speaker">Ozge Demirci (Imperial)</span>
             <span class="seminar-meta">Wednesday, 16h00 &bull; Research Seminar</span>
         </div>
     </li>
     <li class="seminar-item">
-        <div class="date-badge">23 Apr 2025</div>
+        <div class="date-badge">15 Apr 2026</div>
         <div class="seminar-info">
-            <span class="seminar-speaker">Clement Malgouyres (Sciences Po)</span>
+            <span class="seminar-speaker">Simon Reif (ZEW)</span>
             <span class="seminar-meta">Wednesday, 16h00 &bull; Research Seminar</span>
         </div>
     </li>
     <li class="seminar-item">
-        <div class="date-badge">27 May 2025</div>
+        <div class="date-badge">18 Mar 2026</div>
         <div class="seminar-info">
-            <span class="seminar-speaker">Carlos Serrano (HEC Paris)</span>
-            <span class="seminar-meta">Tuesday, 16h00 &bull; Research Seminar</span>
+            <span class="seminar-speaker">Antoine Dechezlepretre (OECD)</span>
+            <span class="seminar-meta">Wednesday, 16h00 &bull; Research Seminar</span>
         </div>
     </li>
     <li class="seminar-item">
-        <div class="date-badge">11 Jun 2025</div>
+        <div class="date-badge">18 Feb 2026</div>
         <div class="seminar-info">
-            <span class="seminar-speaker">Leonard Treuren (KU Leuven)</span>
+            <span class="seminar-speaker">Hadi El Caiou (Toronto)</span>
+            <span class="seminar-meta">Wednesday, 16h00 &bull; Research Seminar</span>
+        </div>
+    </li>
+    <li class="seminar-item">
+        <div class="date-badge">21 Jan 2026</div>
+        <div class="seminar-info">
+            <span class="seminar-speaker">Christos Genakos (Cambridge)</span>
+            <span class="seminar-meta">Wednesday, 16h00 &bull; Research Seminar</span>
+        </div>
+    </li>
+    <li class="seminar-item">
+        <div class="date-badge">10 Dec 2025</div>
+        <div class="seminar-info">
+            <span class="seminar-speaker">Helene Ollivier (PSE)</span>
+            <span class="seminar-meta">Wednesday, 16h00 &bull; Research Seminar</span>
+        </div>
+    </li>
+    <li class="seminar-item">
+        <div class="date-badge">19 Nov 2025</div>
+        <div class="seminar-info">
+            <span class="seminar-speaker">Tomaso Duso (DIW)</span>
+            <span class="seminar-meta">Wednesday, 16h00 &bull; Research Seminar</span>
+        </div>
+    </li>
+    <li class="seminar-item">
+        <div class="date-badge">13 Nov 2025</div>
+        <div class="seminar-info">
+            <span class="seminar-speaker">Joel Stiebale (DICE)</span>
+            <span class="seminar-meta">Thursday, 16h00 &bull; Research Seminar</span>
+        </div>
+    </li>
+    <li class="seminar-item">
+        <div class="date-badge">29 Oct 2025</div>
+        <div class="seminar-info">
+            <span class="seminar-speaker">Annika Herr (Hannover)</span>
+            <span class="seminar-meta">Wednesday, 16h00 &bull; Research Seminar</span>
+        </div>
+    </li>
+    <li class="seminar-item">
+        <div class="date-badge">15 Oct 2025</div>
+        <div class="seminar-info">
+            <span class="seminar-speaker">Nick de Roos (Liverpool)</span>
             <span class="seminar-meta">Wednesday, 16h00 &bull; Research Seminar</span>
         </div>
     </li>
@@ -221,7 +254,7 @@
 
 </main>
 
-<footer>&copy; 2025 Sven Heim</footer>
+<footer>&copy; 2026 Sven Heim</footer>
 
 </body>
 </html>
