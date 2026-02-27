@@ -1,5 +1,5 @@
 /* =========================================================
-   Sven Heim – Original Restored (Only Buttons & Shadow)
+   Sven Heim – Original Restored with Grouped Alignment
    ========================================================= */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -42,13 +42,13 @@ img{ max-width: 100%; height: auto; display: block; }
 
 em{ font-family: inherit; font-style: italic; font-size: inherit; line-height: inherit; }
 
-/* ---------------- Header (Mit Schatten-Zustand) ---------------- */
+/* ---------------- Header ---------------- */
 header{
   background: var(--bg);
   border-bottom: 1px solid var(--line);
   position: sticky;
   top: 0;
-  z-index: 99;
+  z-index: 1000;
   transition: all 0.3s ease;
 }
 
@@ -65,7 +65,6 @@ header.scrolled {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
 }
 
 .site-name{ font-size: .95rem; font-weight: 600; color: var(--text); letter-spacing: .01em; text-decoration: none; }
@@ -73,14 +72,20 @@ nav{ display: flex; gap: .2rem; align-items: center; }
 nav a{ font-size: .82rem; font-weight: 500; color: var(--text2); padding: .28rem .55rem; border-radius: 4px; text-decoration: none; }
 nav a:hover, nav a.active{ color: var(--link); background: rgba(0,0,0,.04); text-decoration: none; }
 
-/* ---------------- Hero (EXAKT DEIN ORIGINAL) ---------------- */
+/* ---------------- Hero (EXAKT DEIN LAYOUT-FIX) ---------------- */
 main{ max-width: var(--w); margin: 0 auto; padding: 2.5rem var(--pad) 4rem; }
 
-.hero{
+.hero {
+  display: flex;
+  flex-direction: column; /* Stapelt Text+Bild Gruppe und Buttons */
+  margin-bottom: 1.8rem;
+}
+
+/* HIER: Das Foto wird ausschließlich zur Text-Gruppe mittig zentriert */
+.hero-main {
   display: flex;
   gap: 2.8rem;
-  align-items: center; /* EXAKT DEIN ORIGINAL */
-  margin-bottom: 1.8rem;
+  align-items: center; /* Das sorgt für die perfekte vertikale Mitte zum Text */
 }
 
 .hero-content{ flex: 1; min-width: 0; }
@@ -95,7 +100,12 @@ main{ max-width: var(--w); margin: 0 auto; padding: 2.5rem var(--pad) 4rem; }
 }
 
 /* ---------------- Buttons (Nur Radius & Icons geändert) ---------------- */
-.links-row{ display: flex; flex-wrap: wrap; gap: .45rem; margin-top: 1rem; }
+.links-row{ 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: .45rem; 
+  margin-top: 1.5rem; /* Abstand vom Fließtext nach oben */
+}
 
 .links-row a{
   display: inline-flex;
@@ -122,7 +132,7 @@ main{ max-width: var(--w); margin: 0 auto; padding: 2.5rem var(--pad) 4rem; }
 footer{ max-width: var(--w); margin: 0 auto; padding: 1.2rem var(--pad); border-top: 1px solid var(--line); font-size: .73rem; color: var(--text3); text-align: center; }
 
 @media (max-width: 700px){
-  .hero{ flex-direction: column; gap: 1.2rem; align-items: center; }
-  .hero-photo{ width: 190px; height: 190px; order: -1; }
-  .links-row{ justify-content: center; }
+  .hero-main { flex-direction: column; gap: 1.2rem; align-items: center; }
+  .hero-photo { width: 190px; height: 190px; order: -1; }
+  .links-row { justify-content: center; }
 }
