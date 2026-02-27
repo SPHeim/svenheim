@@ -1,10 +1,10 @@
 /* =========================================================
-   Sven Heim – Unified Academic Design (Uli-Style Update)
+   Sven Heim – Original Restored + Shadow & Icon Upgrades
    ========================================================= */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
+:root{
   --text: #2c2c2c;
   --text2: #4a4a4a;
   --text3: #777;
@@ -28,8 +28,8 @@
   --photo-focus-y-mobile: 10%;
 }
 
-html { font-size: 16px; scroll-behavior: smooth; }
-body {
+html{ font-size: 16px; scroll-behavior: smooth; }
+body{
   font-family: var(--sans);
   color: var(--text);
   background: var(--bg);
@@ -37,19 +37,19 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-a { color: var(--link); text-decoration: none; }
-a:hover {
+a{ color: var(--link); text-decoration: none; }
+a:hover{
   color: var(--link-h);
   text-decoration: underline;
   text-decoration-color: rgba(43,82,120,.28);
   text-underline-offset: 3px;
 }
-img { max-width: 100%; height: auto; display: block; }
+img{ max-width: 100%; height: auto; display: block; }
 
-em { font-family: inherit; font-style: italic; font-size: inherit; line-height: inherit; }
+em{ font-family: inherit; font-style: italic; font-size: inherit; line-height: inherit; }
 
-/* ---------------- Header (Sticky & Shadow) ---------------- */
-header {
+/* ---------------- Header & Schatten-Upgrade ---------------- */
+header{
   background: var(--bg);
   border-bottom: 1px solid var(--line);
   position: sticky;
@@ -58,15 +58,14 @@ header {
   transition: all 0.3s ease;
 }
 
-/* Zustand wenn gescrollt wurde */
+/* Der Schatten-Zustand beim Scrollen */
 header.scrolled {
-  background: rgba(250, 250, 250, 0.9);
+  background: rgba(250, 250, 250, 0.95);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
   backdrop-filter: blur(10px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  border-bottom-color: transparent;
 }
 
-.header-inner {
+.header-inner{
   max-width: var(--w);
   margin: 0 auto;
   padding: .7rem var(--pad);
@@ -76,7 +75,7 @@ header.scrolled {
   gap: 1rem;
 }
 
-.site-name {
+.site-name{
   font-size: .95rem;
   font-weight: 600;
   color: var(--text);
@@ -84,9 +83,9 @@ header.scrolled {
   text-decoration: none;
 }
 
-nav { display: flex; gap: .2rem; align-items: center; }
+nav{ display: flex; gap: .2rem; align-items: center; }
 
-nav a {
+nav a{
   font-size: .82rem;
   font-weight: 500;
   color: var(--text2);
@@ -96,53 +95,23 @@ nav a {
 }
 
 nav a:hover,
-nav a.active {
+nav a.active{
   color: var(--link);
   background: rgba(0,0,0,.04);
   text-decoration: none;
 }
 
-.nav-toggle {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: .5rem;
-}
-
-.nav-toggle span {
-  display: block;
-  width: 18px;
-  height: 1.5px;
-  background: var(--text2);
-  margin: 4px 0;
-}
-
-@media (max-width: 700px) {
-  .nav-toggle { display: block; }
-  nav { display: none; width: 100%; flex-direction: column; align-items: flex-start; }
-  nav.open { display: flex; }
-  .header-inner { flex-wrap: wrap; }
-}
-
-/* ---------------- Main ---------------- */
-main {
-  max-width: var(--w);
-  margin: 0 auto;
-  padding: 2.5rem var(--pad) 4rem;
-}
-
-/* ---------------- Hero Section ---------------- */
-.hero {
+/* ---------------- Hero (EXAKT DEIN LAYOUT) ---------------- */
+.hero{
   display: flex;
   gap: 2.8rem;
-  align-items: center;
+  align-items: center; /* EXAKT DEIN ORIGINAL */
   margin-bottom: 1.8rem;
 }
 
-.hero-content { flex: 1; min-width: 0; }
+.hero-content{ flex: 1; min-width: 0; }
 
-.hero-photo {
+.hero-photo{
   width: 250px;
   min-width: 250px;
   height: 250px;
@@ -156,176 +125,70 @@ main {
   box-shadow: 0 10px 24px rgba(0,0,0,.06);
 }
 
-.hero-content h1 {
+.hero-content h1{
   font-size: 1.75rem;
   font-weight: 600;
   color: var(--text);
   margin-bottom: .1rem;
 }
 
-.sub {
+.sub{
   font-size: .9rem;
   color: var(--text3);
   margin-bottom: 1rem;
 }
 
-.bio {
+.bio{
   font-size: .9rem;
   color: var(--text2);
   line-height: 1.72;
   max-width: 78ch;
 }
-.bio p { margin-bottom: .7rem; }
+.bio p{ margin-bottom: .7rem; }
 
-/* ---------------- Links Row (NEW ULI BUTTONS) ---------------- */
-.links-row {
+/* ---------------- Buttons (Uli-Style Upgrade) ---------------- */
+.links-row{
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 1.2rem;
+  margin-top: 1rem;
 }
 
-.links-row a {
+.links-row a{
   display: inline-flex;
   align-items: center;
   padding: 8px 16px;
   background: var(--white);
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--line);
   border-radius: 9999px; /* Pillenform */
-  color: #475569;
-  text-decoration: none;
-  font-size: 0.82rem;
+  color: var(--link);
+  font-size: .77rem;     /* EXAKT DEIN ORIGINAL */
   font-weight: 500;
   transition: all 0.2s ease;
+  text-decoration: none;
 }
 
-.links-row a:hover {
-  background: #f8fafc;
-  border-color: #cbd5e1;
-  color: #1e293b;
-  text-decoration: none;
-  transform: translateY(-1px);
-}
+.links-row a:hover{ border-color: var(--link); background: #f1f5f9; text-decoration: none; }
 
 .links-row svg {
-  width: 17px;
-  height: 17px;
-  margin-right: 8px;
-  stroke: currentColor;
+  width: 17px; height: 17px; margin-right: 8px; stroke: currentColor;
 }
 
-/* Besonderer Akzent für CV Link */
-.links-row a.cv-link {
-  background: #f1f5f9;
-  border-color: #cbd5e1;
+.links-row .cv-link{
+  background: var(--link);
+  color: var(--white);
+  border-color: var(--link);
   font-weight: 600;
 }
+.links-row .cv-link:hover{ background: var(--link-h); color: var(--white); }
 
-@media (max-width: 700px) {
-  .hero {
-    flex-direction: column;
-    gap: 1.2rem;
-    align-items: center;
-  }
+/* ---------------- Rest (News, Footer etc.) ---------------- */
+.section-title{ font-size: 1rem; font-weight: 600; color: var(--text); margin: 2.2rem 0 .8rem; padding-bottom: .35rem; border-bottom: 1px solid var(--line); }
+.pub-item{ padding: 1.0rem 0; border-bottom: 1px solid var(--line-strong); max-width: 92ch; }
+footer{ max-width: var(--w); margin: 0 auto; padding: 1.2rem var(--pad); border-top: 1px solid var(--line); font-size: .73rem; color: var(--text3); text-align: center; }
 
-  .hero-photo {
-    width: 190px;
-    min-width: 190px;
-    height: 190px;
-    order: -1;
-    object-position: center var(--photo-focus-y-mobile);
-  }
-
-  .hero-content {
-    width: 100%;
-    text-align: left;
-  }
-
-  .hero-content h1,
-  .hero-content .sub {
-    text-align: center;
-  }
-
-  .links-row {
-    justify-content: center;
-  }
-}
-
-/* ---------------- Section titles ---------------- */
-.section-title {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--text);
-  margin: 2.2rem 0 .8rem;
-  padding-bottom: .35rem;
-  border-bottom: 1px solid var(--line);
-}
-
-/* ---------------- News meta line ---------------- */
-.news-meta {
-  display: flex;
-  align-items: baseline;
-  gap: .35rem;
-  margin: .05rem 0 .35rem;
-  font-size: .72rem;
-  color: var(--text3);
-  letter-spacing: .06em;
-  text-transform: uppercase;
-}
-.news-year { font-weight: 500; }
-.news-type { font-weight: 600; }
-.news-sep { opacity: .75; }
-
-/* ---------------- Items / lists ---------------- */
-.pub-item {
-  padding: 1.0rem 0;
-  border-bottom: 1px solid var(--line-strong);
-  max-width: 92ch;
-}
-.pub-item:last-child { border-bottom: none; }
-
-.pub-item h3 {
-  font-size: .88rem;
-  font-weight: 600;
-  line-height: 1.35;
-  margin: 0 0 .25rem;
-  color: var(--text);
-}
-.pub-item h3 a { color: var(--link); }
-.pub-item h3 a:hover { color: var(--link-h); }
-
-.meta {
-  font-size: .80rem;
-  color: var(--text3);
-  margin-bottom: .35rem;
-}
-
-.pub-item p {
-  font-size: .86rem;
-  color: var(--text2);
-  line-height: 1.55;
-  margin-top: .25rem;
-}
-.pub-item p + p { margin-top: .45rem; }
-
-.press-links {
-  font-size: .78rem;
-  color: var(--text3);
-  display: flex;
-  flex-wrap: wrap;
-  gap: .35rem .55rem;
-  align-items: baseline;
-  max-width: 92ch;
-}
-.press-links a { white-space: nowrap; }
-
-/* Footer */
-footer {
-  max-width: var(--w);
-  margin: 0 auto;
-  padding: 1.2rem var(--pad);
-  border-top: 1px solid var(--line);
-  font-size: .73rem;
-  color: var(--text3);
-  text-align: center;
+@media (max-width: 700px){
+  .hero{ flex-direction: column; gap: 1.2rem; align-items: center; }
+  .hero-photo{ width: 190px; height: 190px; order: -1; }
+  .links-row{ justify-content: center; }
 }
