@@ -8,7 +8,149 @@
   --text: #2c2c2c;
   --text2: #4a4a4a;
   --text3: #777;
+/* =========================================================
+   Sven Heim – Original Restored + Upgrades (Icons & Shadow)
+   ========================================================= */
 
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root{
+  --text: #2c2c2c;
+  --text2: #4a4a4a;
+  --text3: #777;
+  --line: #e2e2e2;
+  --line-strong: rgba(0,0,0,.14);
+  --bg: #fafafa;
+  --white: #fff;
+  --link: #2b5278;
+  --link-h: #1a3d5c;
+  --serif: 'Crimson Pro', Georgia, serif;
+  --sans: 'DM Sans', -apple-system, system-ui, sans-serif;
+  --w: 1080px;
+  --pad: 2.5rem;
+  --photo-focus-y: 8%;
+  --photo-focus-y-mobile: 10%;
+}
+
+html{ font-size: 16px; scroll-behavior: smooth; }
+body{
+  font-family: var(--sans);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.68;
+  -webkit-font-smoothing: antialiased;
+}
+
+a{ color: var(--link); text-decoration: none; }
+a:hover{
+  color: var(--link-h);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+img{ max-width: 100%; height: auto; display: block; }
+em{ font-family: inherit; font-style: italic; font-size: inherit; line-height: inherit; }
+
+/* ---------------- Header & Schatten-Effekt ---------------- */
+header{
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+/* Der Schatten, der per JavaScript aktiviert wird */
+header.scrolled {
+  background: rgba(250, 250, 250, 0.95);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  backdrop-filter: blur(10px);
+}
+
+.header-inner{
+  max-width: var(--w);
+  margin: 0 auto;
+  padding: .7rem var(--pad);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-name{ font-size: .95rem; font-weight: 600; color: var(--text); text-decoration: none; }
+nav{ display: flex; gap: .2rem; align-items: center; }
+nav a{ font-size: .82rem; font-weight: 500; color: var(--text2); padding: .28rem .55rem; border-radius: 4px; text-decoration: none; }
+nav a:hover, nav a.active{ color: var(--link); background: rgba(0,0,0,.04); text-decoration: none; }
+
+/* ---------------- Hero (EXAKT DEIN ORIGINAL-LAYOUT) ---------------- */
+main{ max-width: var(--w); margin: 0 auto; padding: 2.5rem var(--pad) 4rem; }
+
+.hero{
+  display: flex;
+  gap: 2.8rem;
+  align-items: center; /* Das ist dein vertikal zentriertes Original */
+  margin-bottom: 1.8rem;
+}
+
+.hero-content{ flex: 1; min-width: 0; }
+
+.hero-photo{
+  width: 250px; min-width: 250px; height: 250px; border-radius: 50%;
+  object-fit: cover; object-position: center var(--photo-focus-y);
+  order: 2; 
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 24px rgba(0,0,0,.06);
+}
+
+/* ---------------- Buttons (Nur die Form & Icons angepasst) ---------------- */
+.links-row{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.links-row a{
+  display: inline-flex;
+  align-items: center;
+  font-size: .77rem; /* Dein Originalwert */
+  font-weight: 500;
+  color: var(--link);
+  padding: .4rem .9rem; 
+  border: 1px solid var(--line);
+  border-radius: 9999px; /* Pillenform */
+  background: var(--white);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.links-row a:hover{ border-color: var(--link); background: #f1f5f9; text-decoration: none; }
+
+.links-row svg {
+  width: 16px; height: 16px; margin-right: 8px; stroke: currentColor;
+}
+
+.links-row .cv-link{
+  background: var(--link);
+  color: var(--white);
+  border-color: var(--link);
+  font-weight: 600;
+}
+.links-row .cv-link:hover{ background: var(--link-h); color: var(--white); }
+
+/* Rest deines Codes (News, Media Queries etc.) */
+.section-title{ font-size: 1rem; font-weight: 600; color: var(--text); margin: 2.2rem 0 .8rem; padding-bottom: .35rem; border-bottom: 1px solid var(--line); }
+.pub-item{ padding: 1.0rem 0; border-bottom: 1px solid var(--line-strong); max-width: 92ch; }
+
+@media (max-width: 700px){
+  .hero{ flex-direction: column; gap: 1.2rem; align-items: center; }
+  .hero-photo{ width: 190px; height: 190px; order: -1; }
+  .hero-content{ width: 100%; text-align: left; }
+  .hero-content h1, .hero-content .sub{ text-align: center; }
+  .links-row{ justify-content: center; }
+}
+
+footer{ max-width: var(--w); margin: 0 auto; padding: 1.2rem var(--pad); border-top: 1px solid var(--line); font-size: .73rem; color: var(--text3); text-align: center; }
   --line: #e2e2e2;
   --line-strong: rgba(0,0,0,.14);
 
