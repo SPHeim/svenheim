@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=20260226">
+  <link rel="stylesheet" href="style.css?v=20260227">
 
   <script type="application/ld+json">
   {
@@ -89,7 +89,7 @@
 
 <body>
 
-<header>
+<header id="main-header">
   <div class="header-inner">
     <a href="index.html" class="site-name">Sven Heim</a>
 
@@ -98,7 +98,7 @@
     </button>
 
     <nav>
-      <a href="index.html">Home</a>
+      <a href="index.html" class="active">Home</a>
       <a href="research.html">Research</a>
       <a href="teaching.html">Teaching</a>
       <a href="seminars.html">Seminars</a>
@@ -250,6 +250,17 @@
 </main>
 
 <footer>&copy; 2026 Sven Heim</footer>
+
+<script>
+  const header = document.getElementById('main-header');
+  window.onscroll = function() {
+    if (window.scrollY > 20) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  };
+</script>
 
 </body>
 </html>
