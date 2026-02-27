@@ -169,39 +169,50 @@ main{
 }
 .bio p{ margin-bottom: .7rem; }
 
+/* ---------------- Links Row (NEW DESIGN) ---------------- */
 .links-row{
   display: flex;
   flex-wrap: wrap;
-  gap: .35rem;
-  margin-top: 1rem;
+  gap: 10px;
+  margin-top: 1.2rem;
 }
 
 .links-row a{
-  font-size: .77rem;
-  font-weight: 500;
-  color: var(--link);
-  padding: .22rem .5rem;
-  border: 1px solid var(--line);
-  border-radius: 3px;
-  background: var(--white);
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  background-color: var(--white);
+  border: 1px solid #e2e8f0;
+  border-radius: 9999px; /* Pill form like Ulrich */
+  color: #475569;        /* Slate text */
   text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
 
-.links-row a:hover{ border-color: var(--link); text-decoration: none; }
+.links-row a:hover{
+  background-color: #f8fafc;
+  border-color: #cbd5e1;
+  color: #1e293b;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
 
-.links-row .cv-link{
-  background: var(--link);
-  color: var(--white);
-  border-color: var(--link);
+.links-row svg{
+  width: 17px;
+  height: 17px;
+  margin-right: 8px;
+  stroke: currentColor;
+}
+
+/* Special accent for CV link */
+.links-row a.cv-link{
+  background-color: #f1f5f9;
+  border-color: #cbd5e1;
   font-weight: 600;
 }
-.links-row .cv-link:hover{
-  background: var(--link-h);
-  border-color: var(--link-h);
-  color: var(--white);
-}
 
-/* Mobile hero: photo first, then name/sub centered, bio left */
 @media (max-width: 700px){
   .hero{
     flex-direction: column;
@@ -341,7 +352,7 @@ main{
 /* More breathing room after "Teaching" title */
 .page-teaching .section-title{
   margin-top: 2.2rem;
-  margin-bottom: 1.35rem; /* larger gap before first university */
+  margin-bottom: 1.35rem; 
 }
 
 /* University headings */
@@ -349,46 +360,39 @@ main{
   font-size: 1.02rem;
   font-weight: 600;
   color: var(--text);
-  margin: 2.0rem 0 .65rem; /* BIGGER separation between universities */
+  margin: 2.0rem 0 .65rem; 
   letter-spacing: .01em;
 }
 
-/* First university should not start too far down */
 .page-teaching .section-title + .subsection-title{
   margin-top: .25rem;
 }
 
-/* Courses: no separators, slightly tighter, but not cramped */
 .page-teaching .pub-item{
-  border-bottom: none;         /* you asked: no lines between courses */
+  border-bottom: none;
   padding: .60rem 0;
   max-width: 92ch;
 }
 
-/* Add a bit of space between the last course and the next university */
 .page-teaching .pub-item + .subsection-title{
   margin-top: 2.2rem;
 }
 
-/* Course title sizing: a touch smaller than uni heading */
 .page-teaching .pub-item .item-title{
   font-size: .90rem;
   font-weight: 600;
   line-height: 1.35;
 }
 
-/* Year visually lighter and aligned */
 .page-teaching .pub-item .item-year{
   font-size: .80rem;
   color: var(--text3);
 }
 
-/* Course description spacing */
 .page-teaching .pub-item p{
   margin-top: .25rem;
 }
 
-/* Mobile adjustments */
 @media (max-width: 700px){
   .item-head{ grid-template-columns: 1fr; gap: .25rem; }
   .item-year{ text-align: left; }
