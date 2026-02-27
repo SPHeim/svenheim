@@ -1,10 +1,10 @@
 /* =========================================================
-   Sven Heim – unified academic design
+   Sven Heim – Unified Academic Design (Uli-Style Update)
    ========================================================= */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root{
+:root {
   --text: #2c2c2c;
   --text2: #4a4a4a;
   --text3: #777;
@@ -28,8 +28,8 @@
   --photo-focus-y-mobile: 10%;
 }
 
-html{ font-size: 16px; scroll-behavior: smooth; }
-body{
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
   font-family: var(--sans);
   color: var(--text);
   background: var(--bg);
@@ -37,28 +37,36 @@ body{
   -webkit-font-smoothing: antialiased;
 }
 
-a{ color: var(--link); text-decoration: none; }
-a:hover{
+a { color: var(--link); text-decoration: none; }
+a:hover {
   color: var(--link-h);
   text-decoration: underline;
   text-decoration-color: rgba(43,82,120,.28);
   text-underline-offset: 3px;
 }
-img{ max-width: 100%; height: auto; display: block; }
+img { max-width: 100%; height: auto; display: block; }
 
-/* Italics consistent (no serif swap) */
-em{ font-family: inherit; font-style: italic; font-size: inherit; line-height: inherit; }
+em { font-family: inherit; font-style: italic; font-size: inherit; line-height: inherit; }
 
-/* ---------------- Header ---------------- */
-header{
+/* ---------------- Header (Sticky & Shadow) ---------------- */
+header {
   background: var(--bg);
   border-bottom: 1px solid var(--line);
   position: sticky;
   top: 0;
-  z-index: 99;
+  z-index: 1000;
+  transition: all 0.3s ease;
 }
 
-.header-inner{
+/* Zustand wenn gescrollt wurde */
+header.scrolled {
+  background: rgba(250, 250, 250, 0.9);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-bottom-color: transparent;
+}
+
+.header-inner {
   max-width: var(--w);
   margin: 0 auto;
   padding: .7rem var(--pad);
@@ -68,7 +76,7 @@ header{
   gap: 1rem;
 }
 
-.site-name{
+.site-name {
   font-size: .95rem;
   font-weight: 600;
   color: var(--text);
@@ -76,9 +84,9 @@ header{
   text-decoration: none;
 }
 
-nav{ display: flex; gap: .2rem; align-items: center; }
+nav { display: flex; gap: .2rem; align-items: center; }
 
-nav a{
+nav a {
   font-size: .82rem;
   font-weight: 500;
   color: var(--text2);
@@ -88,13 +96,13 @@ nav a{
 }
 
 nav a:hover,
-nav a.active{
+nav a.active {
   color: var(--link);
   background: rgba(0,0,0,.04);
   text-decoration: none;
 }
 
-.nav-toggle{
+.nav-toggle {
   display: none;
   background: none;
   border: none;
@@ -102,7 +110,7 @@ nav a.active{
   padding: .5rem;
 }
 
-.nav-toggle span{
+.nav-toggle span {
   display: block;
   width: 18px;
   height: 1.5px;
@@ -110,117 +118,117 @@ nav a.active{
   margin: 4px 0;
 }
 
-@media (max-width: 700px){
-  .nav-toggle{ display: block; }
-  nav{ display: none; width: 100%; flex-direction: column; align-items: flex-start; }
-  nav.open{ display: flex; }
-  .header-inner{ flex-wrap: wrap; }
+@media (max-width: 700px) {
+  .nav-toggle { display: block; }
+  nav { display: none; width: 100%; flex-direction: column; align-items: flex-start; }
+  nav.open { display: flex; }
+  .header-inner { flex-wrap: wrap; }
 }
 
 /* ---------------- Main ---------------- */
-main{
+main {
   max-width: var(--w);
   margin: 0 auto;
   padding: 2.5rem var(--pad) 4rem;
 }
 
-/* ---------------- Hero (Home) ---------------- */
-.hero{
+/* ---------------- Hero Section ---------------- */
+.hero {
   display: flex;
   gap: 2.8rem;
   align-items: center;
   margin-bottom: 1.8rem;
 }
 
-.hero-content{ flex: 1; min-width: 0; }
+.hero-content { flex: 1; min-width: 0; }
 
-.hero-photo{
+.hero-photo {
   width: 250px;
   min-width: 250px;
   height: 250px;
   border-radius: 50%;
   object-fit: cover;
   object-position: center var(--photo-focus-y);
-  order: 2; /* desktop: photo right */
+  order: 2; 
 
   background: #fff;
   border: 1px solid var(--line);
   box-shadow: 0 10px 24px rgba(0,0,0,.06);
 }
 
-.hero-content h1{
+.hero-content h1 {
   font-size: 1.75rem;
   font-weight: 600;
   color: var(--text);
   margin-bottom: .1rem;
 }
 
-.sub{
+.sub {
   font-size: .9rem;
   color: var(--text3);
   margin-bottom: 1rem;
 }
 
-.bio{
+.bio {
   font-size: .9rem;
   color: var(--text2);
   line-height: 1.72;
   max-width: 78ch;
 }
-.bio p{ margin-bottom: .7rem; }
+.bio p { margin-bottom: .7rem; }
 
-/* ---------------- Links Row (NEW DESIGN) ---------------- */
-.links-row{
+/* ---------------- Links Row (NEW ULI BUTTONS) ---------------- */
+.links-row {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 1.2rem;
 }
 
-.links-row a{
+.links-row a {
   display: inline-flex;
   align-items: center;
   padding: 8px 16px;
-  background-color: var(--white);
+  background: var(--white);
   border: 1px solid #e2e8f0;
-  border-radius: 9999px; /* Pill form like Ulrich */
-  color: #475569;        /* Slate text */
+  border-radius: 9999px; /* Pillenform */
+  color: #475569;
   text-decoration: none;
   font-size: 0.82rem;
   font-weight: 500;
   transition: all 0.2s ease;
 }
 
-.links-row a:hover{
-  background-color: #f8fafc;
+.links-row a:hover {
+  background: #f8fafc;
   border-color: #cbd5e1;
   color: #1e293b;
   text-decoration: none;
   transform: translateY(-1px);
 }
 
-.links-row svg{
+.links-row svg {
   width: 17px;
   height: 17px;
   margin-right: 8px;
   stroke: currentColor;
 }
 
-/* Special accent for CV link */
-.links-row a.cv-link{
-  background-color: #f1f5f9;
+/* Besonderer Akzent für CV Link */
+.links-row a.cv-link {
+  background: #f1f5f9;
   border-color: #cbd5e1;
   font-weight: 600;
 }
 
-@media (max-width: 700px){
-  .hero{
+@media (max-width: 700px) {
+  .hero {
     flex-direction: column;
     gap: 1.2rem;
     align-items: center;
   }
 
-  .hero-photo{
+  .hero-photo {
     width: 190px;
     min-width: 190px;
     height: 190px;
@@ -228,23 +236,23 @@ main{
     object-position: center var(--photo-focus-y-mobile);
   }
 
-  .hero-content{
+  .hero-content {
     width: 100%;
     text-align: left;
   }
 
   .hero-content h1,
-  .hero-content .sub{
+  .hero-content .sub {
     text-align: center;
   }
 
-  .links-row{
+  .links-row {
     justify-content: center;
   }
 }
 
 /* ---------------- Section titles ---------------- */
-.section-title{
+.section-title {
   font-size: 1rem;
   font-weight: 600;
   color: var(--text);
@@ -254,7 +262,7 @@ main{
 }
 
 /* ---------------- News meta line ---------------- */
-.news-meta{
+.news-meta {
   display: flex;
   align-items: baseline;
   gap: .35rem;
@@ -264,44 +272,43 @@ main{
   letter-spacing: .06em;
   text-transform: uppercase;
 }
-.news-year{ font-weight: 500; }
-.news-type{ font-weight: 600; }
-.news-sep{ opacity: .75; }
+.news-year { font-weight: 500; }
+.news-type { font-weight: 600; }
+.news-sep { opacity: .75; }
 
 /* ---------------- Items / lists ---------------- */
-.pub-item{
+.pub-item {
   padding: 1.0rem 0;
   border-bottom: 1px solid var(--line-strong);
   max-width: 92ch;
 }
-.pub-item:last-child{ border-bottom: none; }
+.pub-item:last-child { border-bottom: none; }
 
-.pub-item h3{
+.pub-item h3 {
   font-size: .88rem;
   font-weight: 600;
   line-height: 1.35;
   margin: 0 0 .25rem;
   color: var(--text);
 }
-.pub-item h3 a{ color: var(--link); }
-.pub-item h3 a:hover{ color: var(--link-h); }
+.pub-item h3 a { color: var(--link); }
+.pub-item h3 a:hover { color: var(--link-h); }
 
-.meta{
+.meta {
   font-size: .80rem;
   color: var(--text3);
   margin-bottom: .35rem;
 }
 
-.pub-item p{
+.pub-item p {
   font-size: .86rem;
   color: var(--text2);
   line-height: 1.55;
   margin-top: .25rem;
 }
-.pub-item p + p{ margin-top: .45rem; }
+.pub-item p + p { margin-top: .45rem; }
 
-/* Press links */
-.press-links{
+.press-links {
   font-size: .78rem;
   color: var(--text3);
   display: flex;
@@ -310,101 +317,10 @@ main{
   align-items: baseline;
   max-width: 92ch;
 }
-.press-links a{ white-space: nowrap; }
-
-/* Expertises list */
-.content-list{
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-  max-width: 92ch;
-}
-.content-list li{
-  padding: 1.0rem 0;
-  border-bottom: 1px solid var(--line-strong);
-  color: var(--text2);
-  font-size: .86rem;
-  line-height: 1.55;
-}
-.content-list li:last-child{ border-bottom: none; }
-.content-list a{ font-weight: 600; color: var(--link); }
-.content-list a:hover{ color: var(--link-h); }
-
-/* Teaching helper: title + year grid */
-.item-head{
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 1rem;
-  align-items: baseline;
-}
-.item-title{ margin: 0; }
-.item-year{
-  font-size: .80rem;
-  color: var(--text3);
-  white-space: nowrap;
-  text-align: right;
-}
-
-/* =========================================================
-   Teaching page polish (spacing + hierarchy)
-   ========================================================= */
-
-/* More breathing room after "Teaching" title */
-.page-teaching .section-title{
-  margin-top: 2.2rem;
-  margin-bottom: 1.35rem; 
-}
-
-/* University headings */
-.page-teaching .subsection-title{
-  font-size: 1.02rem;
-  font-weight: 600;
-  color: var(--text);
-  margin: 2.0rem 0 .65rem; 
-  letter-spacing: .01em;
-}
-
-.page-teaching .section-title + .subsection-title{
-  margin-top: .25rem;
-}
-
-.page-teaching .pub-item{
-  border-bottom: none;
-  padding: .60rem 0;
-  max-width: 92ch;
-}
-
-.page-teaching .pub-item + .subsection-title{
-  margin-top: 2.2rem;
-}
-
-.page-teaching .pub-item .item-title{
-  font-size: .90rem;
-  font-weight: 600;
-  line-height: 1.35;
-}
-
-.page-teaching .pub-item .item-year{
-  font-size: .80rem;
-  color: var(--text3);
-}
-
-.page-teaching .pub-item p{
-  margin-top: .25rem;
-}
-
-@media (max-width: 700px){
-  .item-head{ grid-template-columns: 1fr; gap: .25rem; }
-  .item-year{ text-align: left; }
-  .pub-item, .press-links, .content-list{ max-width: 100%; }
-
-  .page-teaching .subsection-title{
-    margin: 1.6rem 0 .55rem;
-  }
-}
+.press-links a { white-space: nowrap; }
 
 /* Footer */
-footer{
+footer {
   max-width: var(--w);
   margin: 0 auto;
   padding: 1.2rem var(--pad);
