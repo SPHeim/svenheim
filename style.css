@@ -98,7 +98,7 @@ main{ max-width: var(--w); margin: 0 auto; padding: 2.5rem var(--pad) 4rem; }
 .hero-main {
   display: flex;
   gap: 2.8rem;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .hero-content{ flex: 1; min-width: 0; }
@@ -110,7 +110,6 @@ main{ max-width: var(--w); margin: 0 auto; padding: 2.5rem var(--pad) 4rem; }
   background: #fff;
   border: 1px solid var(--line);
   box-shadow: 0 10px 24px rgba(0,0,0,.06);
-  margin-top: 5.5rem; /* push past h1 + subtitle to center on bio text */
 }
 
 .hero-content h1{ font-size: 1.75rem; font-weight: 600; margin-bottom: .1rem; }
@@ -333,7 +332,7 @@ footer{
 
   /* Hero */
   .hero-main { flex-direction: column; gap: 1.2rem; align-items: center; }
-  .hero-photo { width: 190px; min-width: 190px; height: 190px; order: -1; margin-top: 0; }
+  .hero-photo { width: 190px; min-width: 190px; height: 190px; order: -1; }
 
   .hero-content { width: 100%; text-align: left; }
   .hero-content h1,
