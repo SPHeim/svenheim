@@ -61,7 +61,7 @@ main{ max-width: var(--w); margin: 0 auto; padding: 2.5rem var(--pad) 4rem; }
 .hero-main {
   display: flex;
   gap: 2.8rem;
-  align-items: center; /* Zentriert das Foto exakt zum Bio-Text */
+  align-items: center;
 }
 
 .hero-content{ flex: 1; min-width: 0; }
@@ -79,7 +79,7 @@ main{ max-width: var(--w); margin: 0 auto; padding: 2.5rem var(--pad) 4rem; }
 
 /* Bio-Abstände */
 .bio { font-size: .9rem; color: var(--text2); }
-.bio p { margin-bottom: 1.2rem; } /* Abstand zwischen Bio-Paragraphen */
+.bio p { margin-bottom: 1.2rem; }
 .bio p:last-child { margin-bottom: 0; }
 
 /* ---------------- Buttons ---------------- */
@@ -94,16 +94,177 @@ main{ max-width: var(--w); margin: 0 auto; padding: 2.5rem var(--pad) 4rem; }
 .links-row svg { width: 15px; height: 15px; margin-right: 6px; stroke: currentColor; }
 .links-row .cv-link{ background: var(--link); color: var(--white); border-color: var(--link); }
 
-/* ---------------- Sektionen ---------------- */
-.section-title{ 
-  font-size: 1rem; font-weight: 600; margin: 2.2rem 0 .8rem; 
-  padding-bottom: .35rem; border-bottom: 1px solid var(--line-strong); 
-}
-.pub-item{ padding: 1.4rem 0; border-bottom: 1px solid var(--line); max-width: 92ch; }
-footer{ padding: 1.2rem var(--pad); border-top: 1px solid var(--line); font-size: .73rem; color: var(--text3); text-align: center; }
+/* ================================================
+   SECTION & CONTENT HIERARCHY
+   ================================================ */
 
+/* --- h2 Section titles (Research, News, Teaching, etc.) --- */
+.section-title{ 
+  font-size: 1.25rem; 
+  font-weight: 600; 
+  letter-spacing: -0.01em;
+  margin: 2.8rem 0 1rem; 
+  padding-bottom: .4rem; 
+  border-bottom: 1px solid var(--line-strong); 
+  color: var(--text);
+}
+/* tighter top margin for the very first section title on a page */
+main > .section-title:first-child {
+  margin-top: 0;
+}
+
+/* --- h3 Subsection titles (institution names on Teaching, etc.) --- */
+.subsection-title {
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 2rem 0 .6rem;
+  padding-bottom: .3rem;
+  border-bottom: 1px solid var(--line);
+}
+
+/* --- Publication / item blocks --- */
+.pub-item{ 
+  padding: 1.3rem 0; 
+  border-bottom: 1px solid var(--line); 
+  max-width: 92ch; 
+}
+.pub-item:last-child { border-bottom: none; }
+
+/* Paper titles (h3 inside pub-item) */
+.pub-item h3 {
+  font-size: .92rem;
+  font-weight: 600;
+  line-height: 1.45;
+  margin-bottom: .3rem;
+}
+.pub-item h3 a { color: var(--link); }
+.pub-item h3 a:hover { color: var(--link-h); }
+
+/* Meta line (authors · journal · year) */
+.pub-item .meta {
+  font-size: .82rem;
+  color: var(--text3);
+  line-height: 1.5;
+  margin-bottom: .35rem;
+}
+
+/* Press links row */
+.press-links {
+  font-size: .78rem;
+  color: var(--text3);
+  margin-top: .35rem;
+}
+.press-links a {
+  color: var(--text3);
+  text-decoration: underline;
+  text-decoration-color: rgba(0,0,0,.15);
+  text-underline-offset: 2px;
+  margin-right: .5rem;
+}
+.press-links a:hover {
+  color: var(--link);
+  text-decoration-color: var(--link);
+}
+
+/* ================================================
+   NEWS SECTION (Home page)
+   ================================================ */
+
+/* News meta line: year · type */
+.news-meta {
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+  margin-bottom: .45rem;
+}
+.news-year {
+  font-size: .75rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.03em;
+}
+.news-sep {
+  font-size: .65rem;
+  color: var(--text3);
+  user-select: none;
+}
+.news-type {
+  font-size: .73rem;
+  font-weight: 500;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Body text inside news items */
+.pub-item > p {
+  font-size: .88rem;
+  color: var(--text2);
+  line-height: 1.65;
+  margin-bottom: .5rem;
+}
+.pub-item > p:last-child {
+  margin-bottom: 0;
+}
+
+/* Bold labels inside news (e.g. "Abstract") */
+.pub-item > p > strong {
+  font-weight: 600;
+  color: var(--text);
+  font-size: .84rem;
+  letter-spacing: 0.01em;
+}
+
+/* ================================================
+   TEACHING PAGE
+   ================================================ */
+
+.item-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1.5rem;
+}
+.item-title {
+  font-size: .9rem;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.45;
+}
+.item-year {
+  font-size: .8rem;
+  font-weight: 500;
+  color: var(--text3);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Description text below teaching items */
+.pub-item .item-head + p {
+  font-size: .84rem;
+  color: var(--text3);
+  margin-top: .35rem;
+  line-height: 1.55;
+}
+
+/* ================================================
+   FOOTER
+   ================================================ */
+footer{ 
+  padding: 1.2rem var(--pad); 
+  border-top: 1px solid var(--line); 
+  font-size: .73rem; 
+  color: var(--text3); 
+  text-align: center; 
+}
+
+/* ================================================
+   RESPONSIVE
+   ================================================ */
 @media (max-width: 700px){
   .hero-main { flex-direction: column; gap: 1.2rem; align-items: center; }
   .hero-photo { width: 190px; height: 190px; order: -1; }
   .links-row { justify-content: center; }
+  .item-head { flex-direction: column; gap: .15rem; }
 }
