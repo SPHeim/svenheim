@@ -1,5 +1,6 @@
 /* =========================================================
    Sven Heim – Original Restored with Grouped Alignment
+   Line Update: Filigran / Transparent
    ========================================================= */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -8,8 +9,11 @@
   --text: #2c2c2c;
   --text2: #4a4a4a;
   --text3: #777;
-  --line: #e2e2e2;
-  --line-strong: rgba(0,0,0,.14);
+  
+  /* NEU: Filigrane Linien durch Transparenz */
+  --line: rgba(0, 0, 0, 0.07);        
+  --line-strong: rgba(0, 0, 0, 0.12); 
+
   --bg: #fafafa;
   --white: #fff;
   --link: #2b5278;
@@ -77,15 +81,14 @@ main{ max-width: var(--w); margin: 0 auto; padding: 2.5rem var(--pad) 4rem; }
 
 .hero {
   display: flex;
-  flex-direction: column; /* Stapelt Text+Bild Gruppe und Buttons */
+  flex-direction: column; 
   margin-bottom: 1.8rem;
 }
 
-/* HIER: Das Foto wird ausschließlich zur Text-Gruppe mittig zentriert */
 .hero-main {
   display: flex;
   gap: 2.8rem;
-  align-items: center; /* Das sorgt für die perfekte vertikale Mitte zum Text */
+  align-items: center; 
 }
 
 .hero-content{ flex: 1; min-width: 0; }
@@ -93,18 +96,18 @@ main{ max-width: var(--w); margin: 0 auto; padding: 2.5rem var(--pad) 4rem; }
 .hero-photo{
   width: 250px; min-width: 250px; height: 250px; border-radius: 50%;
   object-fit: cover; object-position: center var(--photo-focus-y);
-  order: 2; 
+  order: 2;  
   background: #fff;
   border: 1px solid var(--line);
   box-shadow: 0 10px 24px rgba(0,0,0,.06);
 }
 
-/* ---------------- Buttons (Nur Radius & Icons geändert) ---------------- */
+/* ---------------- Buttons (Pillenform & Icons) ---------------- */
 .links-row{ 
   display: flex; 
   flex-wrap: wrap; 
   gap: .45rem; 
-  margin-top: 1.5rem; /* Abstand vom Fließtext nach oben */
+  margin-top: 1.5rem; 
 }
 
 .links-row a{
@@ -115,7 +118,7 @@ main{ max-width: var(--w); margin: 0 auto; padding: 2.5rem var(--pad) 4rem; }
   color: var(--link);
   padding: .3rem .8rem; 
   border: 1px solid var(--line);
-  border-radius: 9999px; /* Pillenform */
+  border-radius: 9999px; 
   background: var(--white);
   text-decoration: none;
   transition: all 0.2s ease;
@@ -126,10 +129,31 @@ main{ max-width: var(--w); margin: 0 auto; padding: 2.5rem var(--pad) 4rem; }
 .links-row .cv-link{ background: var(--link); color: var(--white); border-color: var(--link); font-weight: 600; }
 .links-row .cv-link:hover{ background: var(--link-h); border-color: var(--link-h); color: var(--white); }
 
-/* Rest deines Codes bleibt absolut identisch */
-.section-title{ font-size: 1rem; font-weight: 600; color: var(--text); margin: 2.2rem 0 .8rem; padding-bottom: .35rem; border-bottom: 1px solid var(--line); }
-.pub-item{ padding: 1.0rem 0; border-bottom: 1px solid var(--line-strong); max-width: 92ch; }
-footer{ max-width: var(--w); margin: 0 auto; padding: 1.2rem var(--pad); border-top: 1px solid var(--line); font-size: .73rem; color: var(--text3); text-align: center; }
+/* ---------------- Sektionen & Items (Filigrane Linien) ---------------- */
+.section-title{ 
+  font-size: 1rem; 
+  font-weight: 600; 
+  color: var(--text); 
+  margin: 2.2rem 0 .8rem; 
+  padding-bottom: .35rem; 
+  border-bottom: 1px solid var(--line-strong); 
+}
+
+.pub-item{ 
+  padding: 1.2rem 0; /* Leicht erhöht für mehr Luft bei den feinen Linien */
+  border-bottom: 1px solid var(--line); 
+  max-width: 92ch; 
+}
+
+footer{ 
+  max-width: var(--w); 
+  margin: 0 auto; 
+  padding: 1.2rem var(--pad); 
+  border-top: 1px solid var(--line); 
+  font-size: .73rem; 
+  color: var(--text3); 
+  text-align: center; 
+}
 
 @media (max-width: 700px){
   .hero-main { flex-direction: column; gap: 1.2rem; align-items: center; }
