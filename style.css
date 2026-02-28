@@ -298,6 +298,12 @@ footer{
 @media (max-width: 700px){
   .hero-main { flex-direction: column; gap: 1.2rem; align-items: center; }
   .hero-photo { width: 190px; min-width: 190px; height: 190px; order: -1; }
+
+  .hero-content { width: 100%; text-align: left; }
+  .hero-content h1,
+  .hero-content .sub { text-align: center; }
+
   .links-row { justify-content: center; }
   .item-head { flex-direction: column; gap: .15rem; }
+  .pub-item, .press-links { max-width: 100%; }
 }
