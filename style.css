@@ -136,15 +136,20 @@ main{ max-width: var(--w); margin: 0 auto; padding: 2.5rem var(--pad) 4rem; }
   color: var(--link);
   padding: .3rem .8rem;
   border: 1px solid var(--line);
-  border-radius: 9999px;
+  border-radius: 6px;
   background: var(--white);
   text-decoration: none;
   transition: all 0.2s ease;
 }
 .links-row a:hover{ border-color: var(--link); background: #f1f5f9; text-decoration: none; }
 .links-row svg { width: 15px; height: 15px; margin-right: 6px; stroke: currentColor; }
-.links-row .cv-link{ background: var(--link); color: var(--white); border-color: var(--link); font-weight: 600; }
-.links-row .cv-link:hover{ background: var(--link-h); border-color: var(--link-h); color: var(--white); }
+.links-row .cv-link{
+  border-color: var(--link);
+  color: var(--link);
+  font-weight: 600;
+  background: var(--white);
+}
+.links-row .cv-link:hover{ background: #f1f5f9; }
 
 /* ================================================
    SECTION & CONTENT HIERARCHY
@@ -334,7 +339,19 @@ footer{
   .hero-content h1,
   .hero-content .sub { text-align: center; }
 
-  .links-row { justify-content: center; }
+  .links-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .4rem;
+    justify-content: center;
+  }
+  .links-row a {
+    justify-content: center;
+    padding: .4rem .6rem;
+  }
+  .links-row .cv-link {
+    grid-column: 1 / -1;
+  }
   .item-head { flex-direction: column; gap: .15rem; }
   .pub-item, .press-links { max-width: 100%; }
 }
