@@ -1,6 +1,5 @@
 /* =========================================================
-   Sven Heim – Original Restored with Grouped Alignment
-   Line Update: Filigran / Transparent
+   Sven Heim – Final Academic Style (Fine Lines & Spacing)
    ========================================================= */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -10,7 +9,7 @@
   --text2: #4a4a4a;
   --text3: #777;
   
-  /* NEU: Filigrane Linien durch Transparenz */
+  /* Filigrane Linien */
   --line: rgba(0, 0, 0, 0.07);        
   --line-strong: rgba(0, 0, 0, 0.12); 
 
@@ -39,12 +38,9 @@ a{ color: var(--link); text-decoration: none; }
 a:hover{
   color: var(--link-h);
   text-decoration: underline;
-  text-decoration-color: rgba(43,82,120,.28);
   text-underline-offset: 3px;
 }
 img{ max-width: 100%; height: auto; display: block; }
-
-em{ font-family: inherit; font-style: italic; font-size: inherit; line-height: inherit; }
 
 /* ---------------- Header ---------------- */
 header{
@@ -76,7 +72,7 @@ nav{ display: flex; gap: .2rem; align-items: center; }
 nav a{ font-size: .82rem; font-weight: 500; color: var(--text2); padding: .28rem .55rem; border-radius: 4px; text-decoration: none; }
 nav a:hover, nav a.active{ color: var(--link); background: rgba(0,0,0,.04); text-decoration: none; }
 
-/* ---------------- Hero (EXAKT DEIN LAYOUT-FIX) ---------------- */
+/* ---------------- Hero (Zentrierung & Abstände) ---------------- */
 main{ max-width: var(--w); margin: 0 auto; padding: 2.5rem var(--pad) 4rem; }
 
 .hero {
@@ -88,7 +84,7 @@ main{ max-width: var(--w); margin: 0 auto; padding: 2.5rem var(--pad) 4rem; }
 .hero-main {
   display: flex;
   gap: 2.8rem;
-  align-items: center; 
+  align-items: center; /* Foto mittig zum Text */
 }
 
 .hero-content{ flex: 1; min-width: 0; }
@@ -102,7 +98,15 @@ main{ max-width: var(--w); margin: 0 auto; padding: 2.5rem var(--pad) 4rem; }
   box-shadow: 0 10px 24px rgba(0,0,0,.06);
 }
 
-/* ---------------- Buttons (Pillenform & Icons) ---------------- */
+.hero-content h1{ font-size: 1.75rem; font-weight: 600; color: var(--text); margin-bottom: .1rem; }
+.sub{ font-size: .9rem; color: var(--text3); margin-bottom: 1.2rem; }
+
+/* Bio mit klaren Abständen zwischen den Absätzen */
+.bio { font-size: .9rem; color: var(--text2); line-height: 1.72; max-width: 78ch; }
+.bio p { margin-bottom: 1.1rem; } /* Deutlicher Platz zwischen den Textblöcken */
+.bio p:last-child { margin-bottom: 0; }
+
+/* ---------------- Buttons ---------------- */
 .links-row{ 
   display: flex; 
   flex-wrap: wrap; 
@@ -129,7 +133,7 @@ main{ max-width: var(--w); margin: 0 auto; padding: 2.5rem var(--pad) 4rem; }
 .links-row .cv-link{ background: var(--link); color: var(--white); border-color: var(--link); font-weight: 600; }
 .links-row .cv-link:hover{ background: var(--link-h); border-color: var(--link-h); color: var(--white); }
 
-/* ---------------- Sektionen & Items (Filigrane Linien) ---------------- */
+/* ---------------- News & Listen (Filigrane Linien) ---------------- */
 .section-title{ 
   font-size: 1rem; 
   font-weight: 600; 
@@ -140,19 +144,14 @@ main{ max-width: var(--w); margin: 0 auto; padding: 2.5rem var(--pad) 4rem; }
 }
 
 .pub-item{ 
-  padding: 1.2rem 0; /* Leicht erhöht für mehr Luft bei den feinen Linien */
+  padding: 1.4rem 0; 
   border-bottom: 1px solid var(--line); 
   max-width: 92ch; 
 }
 
 footer{ 
-  max-width: var(--w); 
-  margin: 0 auto; 
-  padding: 1.2rem var(--pad); 
-  border-top: 1px solid var(--line); 
-  font-size: .73rem; 
-  color: var(--text3); 
-  text-align: center; 
+  max-width: var(--w); margin: 0 auto; padding: 1.2rem var(--pad); 
+  border-top: 1px solid var(--line); font-size: .73rem; color: var(--text3); text-align: center; 
 }
 
 @media (max-width: 700px){
