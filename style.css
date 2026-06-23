@@ -12,8 +12,8 @@
   --line-strong: rgba(0,0,0,.14);
   --bg: #fafafa;
   --white: #fff;
-  --link: #2b5278;
-  --link-h: #1a3d5c;
+  --link: #1a73e8;
+  --link-h: #1557b0;
   --serif: 'Crimson Pro', Georgia, serif;
   --sans: 'DM Sans', -apple-system, system-ui, sans-serif;
   --w: 1080px;
@@ -35,7 +35,7 @@ a{ color: var(--link); text-decoration: none; }
 a:hover{
   color: var(--link-h);
   text-decoration: underline;
-  text-decoration-color: rgba(43,82,120,.28);
+  text-decoration-color: rgba(26,115,232,.28);
   text-underline-offset: 3px;
 }
 img{ max-width: 100%; height: auto; display: block; }
@@ -424,7 +424,7 @@ main > .section-title:first-child {
 }
 .paper-status {
   display: inline-block;
-  background: rgba(43,82,120,.08);
+  background: rgba(26,115,232,.08);
   color: var(--link);
   padding: .2rem .6rem;
   border-radius: 4px;
