@@ -200,7 +200,7 @@ main > .section-title:first-child {
 /* Meta line (authors · journal · year) */
 .pub-item .meta {
   font-size: .82rem;
-  color: var(--text3);
+  color: var(--text);
   line-height: 1.5;
   margin-bottom: .35rem;
 }
@@ -208,6 +208,7 @@ main > .section-title:first-child {
 .pub-item .meta em {
   font-weight: 600;
   font-style: italic;
+  color: var(--text);
 }
 /* Period after the meta line (year / forthcoming) */
 .pub-item .meta::after {
