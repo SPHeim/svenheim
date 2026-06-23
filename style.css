@@ -190,7 +190,7 @@ main > .section-title:first-child {
 /* Paper titles (h3 inside pub-item on Research page) */
 .pub-item h3 {
   font-size: .92rem;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.45;
   margin-bottom: .3rem;
 }
@@ -203,6 +203,15 @@ main > .section-title:first-child {
   color: var(--text3);
   line-height: 1.5;
   margin-bottom: .35rem;
+}
+/* Journal names (in <em>) shown in bold */
+.pub-item .meta em {
+  font-weight: 600;
+  font-style: italic;
+}
+/* Period after the meta line (year / forthcoming) */
+.pub-item .meta::after {
+  content: ".";
 }
 
 /* Press links */
