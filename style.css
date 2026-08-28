@@ -123,23 +123,29 @@ main{ max-width: var(--w); margin: 0 auto; padding: 2.6rem var(--pad) 4rem; }
   margin-bottom: 2.2rem;
 }
 
-.hero-main {
+/* Profile head: photo + identity side by side, bio underneath */
+.hero-top{
   display: flex;
-  gap: 3.2rem;
   align-items: center;
+  gap: 2.4rem;
+  padding-bottom: 1.7rem;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 1.7rem;
 }
+.hero-id{ flex: 1; min-width: 0; }
+.hero-id h1{
+  font-family: var(--serif);
+  font-size: 2.6rem;
+  font-weight: 600;
+  letter-spacing: -.015em;
+  line-height: 1.1;
+  margin-bottom: .35rem;
+}
+.hero-id .links-row{ margin-top: 1.2rem; }
 
+/* legacy single-row hero (kept working if the markup is not updated) */
+.hero-main { display: flex; gap: 3.2rem; align-items: flex-start; }
 .hero-content{ flex: 1; min-width: 0; }
-
-.hero-photo{
-  width: 250px; min-width: 250px; height: 250px; border-radius: 50%;
-  object-fit: cover; object-position: center var(--photo-focus-y);
-  order: 2;
-  background: #fff;
-  border: 4px solid var(--white);
-  box-shadow: 0 0 0 1px var(--line), 0 18px 40px -12px rgba(29,78,137,.18);
-}
-
 .hero-content h1{
   font-family: var(--serif);
   font-size: 2.4rem;
@@ -148,11 +154,31 @@ main{ max-width: var(--w); margin: 0 auto; padding: 2.6rem var(--pad) 4rem; }
   line-height: 1.15;
   margin-bottom: .25rem;
 }
-.sub{ font-size: 1rem; color: var(--text3); margin-bottom: 1.4rem; }
+.hero-content .sub{ margin-bottom: 1.2rem; }
+
+.hero-photo{
+  width: 200px; min-width: 200px; height: 200px; border-radius: 50%;
+  object-fit: cover; object-position: center var(--photo-focus-y);
+  order: 2;
+  background: #fff;
+  border: 4px solid var(--white);
+  box-shadow: 0 0 0 1px var(--line), 0 16px 34px -14px rgba(29,78,137,.20);
+}
+
+.sub{
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: .2rem;
+}
+.affil{ font-size: .93rem; color: var(--text3); }
+.affil a{ color: var(--text2); }
+.affil a:hover{ color: var(--accent); }
 
 /* Bio */
-.bio { font-size: .97rem; color: var(--text2); max-width: 62ch; }
-.bio p { margin-bottom: 1.1rem; }
+.bio { font-size: .97rem; color: var(--text2); max-width: 68ch; }
+.bio p { margin-bottom: 1.05rem; }
+.bio p:first-child{ font-size: 1.09rem; line-height: 1.62; color: var(--text); }
 .bio p:last-child { margin-bottom: 0; }
 .bio a{ text-decoration: underline; text-decoration-color: rgba(29,78,137,.22); text-underline-offset: 3px; }
 
@@ -185,7 +211,10 @@ main{ max-width: var(--w); margin: 0 auto; padding: 2.6rem var(--pad) 4rem; }
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(29,78,137,.10);
 }
-.links-row svg { width: 15px; height: 15px; margin-right: 7px; stroke: currentColor; }
+/* Generic outline icons removed: several were semantically wrong (a check mark
+   for Scholar, a plus for ORCID) and two were duplicates. Text pills read
+   cleaner. Delete the <svg> blocks in the HTML when convenient. */
+.links-row svg { display: none; }
 .links-row .cv-link{
   border-color: var(--accent);
   color: var(--white);
