@@ -246,8 +246,14 @@ main > .section-title:first-child { margin-top: 0; }
   margin-bottom: .2rem;
   letter-spacing: 0;
 }
-.pub-item h3 a { color: var(--text); }
-.pub-item h3 a:hover { color: var(--accent); text-decoration-color: rgba(29,78,137,.25); }
+.pub-item h3 a {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-color: rgba(29,78,137,.22);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.pub-item h3 a:hover { color: var(--accent); text-decoration-color: var(--accent); }
 
 /* Meta line (authors · journal · year) */
 .pub-item .meta {
@@ -271,11 +277,11 @@ main > .section-title:first-child { margin-top: 0; }
 }
 .press-links a {
   color: var(--text3);
-  text-decoration: underline;
-  text-decoration-color: rgba(0,0,0,.15);
-  text-underline-offset: 2px;
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(0,0,0,.18);
   margin-right: .55rem;
 }
+.press-links a:hover { border-bottom-color: var(--accent); text-decoration: none; }
 .press-links a:hover {
   color: var(--accent);
   text-decoration-color: var(--accent);
