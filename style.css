@@ -23,6 +23,10 @@
   --w: 1080px;
   --pad: 2.5rem;
   --radius: 12px;
+  /* type scale — only these three sizes for running text */
+  --fs-text: .95rem;   /* body copy everywhere */
+  --fs-meta: .87rem;   /* authors, journals, years, press, labels */
+  --fs-lead: 1.05rem;  /* the one line under the name */
   --photo-focus-y: 8%;
   --photo-focus-y-mobile: 10%;
 }
@@ -144,8 +148,10 @@ main{ max-width: var(--w); margin: 0 auto; padding: 2.6rem var(--pad) 4rem; }
 .hero-id .links-row{ margin-top: 1.2rem; }
 
 /* legacy single-row hero (kept working if the markup is not updated) */
-.hero-main { display: flex; gap: 3.2rem; align-items: flex-start; }
+.hero-main { display: flex; gap: 3.2rem; align-items: center; }
 .hero-content{ flex: 1; min-width: 0; }
+/* in the legacy layout the photo sits on the right and keeps its old size */
+.hero-main .hero-photo{ order: 2; width: 250px; min-width: 250px; height: 250px; }
 .hero-content h1{
   font-family: var(--serif);
   font-size: 2.4rem;
@@ -159,26 +165,24 @@ main{ max-width: var(--w); margin: 0 auto; padding: 2.6rem var(--pad) 4rem; }
 .hero-photo{
   width: 200px; min-width: 200px; height: 200px; border-radius: 50%;
   object-fit: cover; object-position: center var(--photo-focus-y);
-  order: 2;
   background: #fff;
   border: 4px solid var(--white);
   box-shadow: 0 0 0 1px var(--line), 0 16px 34px -14px rgba(29,78,137,.20);
 }
 
 .sub{
-  font-size: 1.05rem;
+  font-size: var(--fs-lead);
   font-weight: 500;
   color: var(--text);
   margin-bottom: .2rem;
 }
-.affil{ font-size: .93rem; color: var(--text3); }
+.affil{ font-size: var(--fs-meta); color: var(--text3); }
 .affil a{ color: var(--text2); }
 .affil a:hover{ color: var(--accent); }
 
 /* Bio */
-.bio { font-size: .97rem; color: var(--text2); max-width: 68ch; }
+.bio { font-size: var(--fs-text); color: var(--text2); max-width: 68ch; }
 .bio p { margin-bottom: 1.05rem; }
-.bio p:first-child{ font-size: 1.09rem; line-height: 1.62; color: var(--text); }
 .bio p:last-child { margin-bottom: 0; }
 .bio a{ text-decoration: underline; text-decoration-color: rgba(29,78,137,.22); text-underline-offset: 3px; }
 
@@ -286,7 +290,7 @@ main > .section-title:first-child { margin-top: 0; }
 
 /* Meta line (authors · journal · year) */
 .pub-item .meta {
-  font-size: .88rem;
+  font-size: var(--fs-meta);
   color: var(--text2);
   line-height: 1.5;
   margin-bottom: .25rem;
@@ -300,7 +304,7 @@ main > .section-title:first-child { margin-top: 0; }
 
 /* Press links */
 .pub-item .press-links {
-  font-size: .86rem;
+  font-size: var(--fs-meta);
   color: var(--text3);
   margin-top: .4rem;
 }
@@ -346,7 +350,7 @@ main > .section-title:first-child { margin-top: 0; }
 
 /* Body text inside news items */
 .pub-item > p {
-  font-size: .92rem;
+  font-size: var(--fs-text);
   color: var(--text2);
   line-height: 1.68;
   margin-bottom: .5rem;
@@ -364,7 +368,7 @@ main > .section-title:first-child { margin-top: 0; }
 
 .abstract-toggle { margin-top: .45rem; }
 .abstract-toggle summary {
-  font-size: .84rem;
+  font-size: var(--fs-meta);
   font-weight: 600;
   color: var(--accent);
   cursor: pointer;
@@ -383,7 +387,7 @@ main > .section-title:first-child { margin-top: 0; }
 .abstract-toggle[open] summary::before { transform: rotate(90deg); }
 .abstract-toggle summary:hover { color: var(--accent-h); text-decoration: none; }
 .abstract-toggle p {
-  font-size: .9rem;
+  font-size: var(--fs-text);
   color: var(--text2);
   line-height: 1.65;
   margin-top: .55rem;
@@ -404,20 +408,20 @@ main > .section-title:first-child { margin-top: 0; }
   gap: 1.5rem;
 }
 .item-title {
-  font-size: .97rem;
+  font-size: var(--fs-text);
   font-weight: 500;
   color: var(--text);
   line-height: 1.5;
 }
 .item-year {
-  font-size: .82rem;
+  font-size: var(--fs-meta);
   font-weight: 500;
   color: var(--text3);
   white-space: nowrap;
   flex-shrink: 0;
 }
 .pub-item .item-head + p {
-  font-size: .9rem;
+  font-size: var(--fs-text);
   color: var(--text3);
   margin-top: .35rem;
   line-height: 1.6;
@@ -445,7 +449,7 @@ main > .section-title:first-child { margin-top: 0; }
   letter-spacing: -.01em;
 }
 .project-meta {
-  font-size: .92rem;
+  font-size: var(--fs-text);
   color: var(--text2);
   margin-bottom: 1.2rem;
   border-bottom: 1px solid var(--line);
@@ -454,7 +458,7 @@ main > .section-title:first-child { margin-top: 0; }
 .project-meta p { margin-bottom: .3rem; }
 .project-meta strong { color: var(--text); font-weight: 600; }
 .project-narrative p {
-  font-size: .95rem;
+  font-size: var(--fs-text);
   color: var(--text2);
   line-height: 1.7;
   margin-bottom: .85rem;
@@ -466,10 +470,10 @@ main > .section-title:first-child { margin-top: 0; }
 .team-list li {
   padding: .65rem 0;
   border-bottom: 1px solid var(--line);
-  font-size: .95rem;
+  font-size: var(--fs-text);
 }
 .team-list li:last-child { border-bottom: none; }
-.team-role { color: var(--text3); font-size: .88rem; margin-left: .4rem; }
+.team-role { color: var(--text3); font-size: var(--fs-meta); margin-left: .4rem; }
 
 .paper-card {
   background: var(--white);
@@ -494,7 +498,7 @@ main > .section-title:first-child { margin-top: 0; }
 .paper-title a { color: var(--text); }
 .paper-title a:hover { color: var(--accent); }
 .paper-authors {
-  font-size: .9rem;
+  font-size: var(--fs-meta);
   color: var(--text3);
   margin-bottom: .6rem;
 }
@@ -510,7 +514,7 @@ main > .section-title:first-child { margin-top: 0; }
   margin-bottom: .9rem;
 }
 .paper-abstract {
-  font-size: .93rem;
+  font-size: var(--fs-text);
   line-height: 1.68;
   color: var(--text2);
   margin: 0;
@@ -519,7 +523,7 @@ main > .section-title:first-child { margin-top: 0; }
   display: inline-block;
   margin-top: 1rem;
   font-weight: 600;
-  font-size: .88rem;
+  font-size: var(--fs-meta);
   color: var(--accent);
 }
 .paper-download:hover { color: var(--accent-h); }
@@ -564,8 +568,11 @@ footer a:hover { color: var(--accent); text-decoration-color: var(--accent); }
   :root{ --pad: 1.3rem; }
 
   .hero-main { flex-direction: column; gap: 1.4rem; align-items: center; }
-  .hero-photo { width: 190px; min-width: 190px; height: 190px; order: -1;
+  .hero-top { flex-direction: column; text-align: center; gap: 1.2rem; }
+  .hero-id { width: 100%; }
+  .hero-photo { width: 175px; min-width: 175px; height: 175px;
     object-position: center var(--photo-focus-y-mobile); }
+  .hero-main .hero-photo { width: 175px; min-width: 175px; height: 175px; order: -1; }
 
   .hero-content { width: 100%; text-align: left; }
   .hero-content h1{ font-size: 1.95rem; text-align: center; }
